@@ -1,0 +1,285 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>English Coaching Classes</title>
+   <style>
+    /* General Styles */
+body {
+    font-family: 'Poppins', sans-serif;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    background: linear-gradient(to right, #3853bd, #0560c1);
+    color: #333;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+a{
+    text-decoration: none;
+}
+/* Header Section */
+header {
+    background: linear-gradient(135deg, #0dbd65, #f8ffae);
+    color: white;
+    text-align: center;
+    padding: 80px 20px;
+    border-bottom-left-radius: 50px;
+    border-bottom-right-radius: 50px;
+    animation: fadeInDown 1s ease-out;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+}
+
+header h1 {
+    font-size: 48px;
+    margin: 0;
+    letter-spacing: 2px;
+}
+
+header p {
+    font-size: 20px;
+    margin: 15px 0;
+}
+
+header button ,button{
+    padding: 15px 30px;
+    background-color: #fff;
+    color: #43c6ac;
+    border: none;
+    border-radius: 30px;
+    cursor: pointer;
+    font-size: 18px;
+    transition: all 0.3s ease;
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
+}
+
+button,header button:hover {
+    background-color: #f8ffae;
+    transform: translateY(-5px);
+}
+
+/* Sections */
+section {
+    padding: 60px 20px;
+    text-align: center;
+    background-color: #fff;
+    margin: 40px 0;
+    border-radius: 30px;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+    animation: fadeInUp 1.2s ease-out;
+}
+
+section:nth-child(even) {
+    background-color: #f7f7f7;
+}
+
+section h2 {
+    font-size: 36px;
+    margin-bottom: 20px;
+    color: #ff7e5f;
+}
+
+section p {
+    font-size: 18px;
+    margin-bottom: 30px;
+}
+
+ul, table {
+    margin: 0 auto;
+    max-width: 700px;
+    text-align: left;
+}
+
+ul li {
+    font-size: 18px;
+    margin: 10px 0;
+    padding-left: 20px;
+    position: relative;
+}
+
+ul li::before {
+    content: '✔';
+    color: #43c6ac;
+    position: absolute;
+    left: 0;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+    background: #fff;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+table, th, td {
+    border: none;
+}
+
+th, td {
+    padding: 20px;
+    text-align: center;
+    color: #333;
+}
+
+th {
+    background-color: #ff7e5f;
+    color: #fff;
+    font-size: 20px;
+}
+
+td {
+    background-color: #f7f7f7;
+    font-size: 18px;
+}
+
+#register {
+    margin-top: 50px;
+}
+
+/* Register Button */
+#registerBtn {
+    background: linear-gradient(to right, #ff7e5f, #feb47b);
+    color: white;
+    padding: 20px 40px;
+    font-size: 20px;
+    border: none;
+    border-radius: 30px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+}
+
+#registerBtn:hover {
+    transform: translateY(-5px);
+    background: linear-gradient(to left, #ff7e5f, #feb47b);
+}
+
+#registrationMessage {
+    margin-top: 20px;
+    font-size: 20px;
+    color: green;
+    font-weight: bold;
+    opacity: 0;
+    animation: fadeIn 1s ease forwards;
+}
+
+/* Footer Section */
+footer {
+    text-align: center;
+    padding: 20px;
+    background-color: #333;
+    color: white;
+    position: relative;
+    width: 100%;
+}
+
+footer p {
+    margin: 0;
+    font-size: 16px;
+}
+
+/* Animations */
+@keyframes fadeInDown {
+    0% {
+        opacity: 0;
+        transform: translateY(-30px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes fadeInUp {
+    0% {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes fadeIn {
+    0% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
+}
+
+   </style>
+</head>
+<body>
+    <header>
+        <h1>Master Your English with Expert Coaching</h1>
+        <p>Enhance your speaking, writing, and grammar skills with our tailored courses.</p>
+        <button><a href="registration.html">Register Now</a></button>
+    </header>
+
+    <section id="about">
+        <h2>About Our Classes</h2>
+        <p>Our English coaching classes are designed to help learners of all levels. Whether you're a beginner or preparing for competitive exams, we offer personalized lessons to suit your needs.</p>
+        <ul>
+            <li>Experienced Trainers</li>
+            <li>Interactive Sessions</li>
+            <li>Flexible Timings</li>
+            <li>Online and Offline Classes Available</li>
+        </ul>
+    </section>
+
+    <section id="schedule">
+        <h2>Class Schedule</h2>
+        <p>Choose from various class timings that suit your schedule:</p>
+        <table>
+            <tr>
+                <th>Day</th>
+                <th>Time</th>
+                <th>Type</th>
+            </tr>
+            <tr>
+                <td>Monday - Friday</td>
+                <td>6:00 PM - 7:00 PM</td>
+                <td>Grammar & Writing</td>
+            </tr>
+            <tr>
+                <td>Monday - Friday</td>
+                <td>7:30 PM - 8:30 PM</td>
+                <td>Speaking Skills</td>
+            </tr>
+            <tr>
+                <td>Saturday</td>
+                <td>10:00 AM - 12:00 PM</td>
+                <td>Advanced Grammar</td>
+            </tr>
+        </table>
+    </section>
+
+    <section id="fees">
+        <h2>Course Fees</h2>
+        <p>We offer affordable rates for all learners. The fee includes access to course materials, online tools, and personalized guidance.</p>
+        <ul>
+            <li>Basic Course (1 month):Rs 1000</li>
+            <li>Intermediate Course (2 months): Rs 2000</li>
+            <li>Advanced Course (3 months):Rs 3000</li>
+        </ul>
+    </section>
+
+    <section id="register">
+        <h2>Ready to Join?</h2>
+        <button ><a href="registration.html">Register Now</a></button>
+        <p id="registrationMessage"></p>
+    </section>
+
+
+   
+</body>
+</html>
