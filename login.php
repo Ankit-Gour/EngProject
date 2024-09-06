@@ -27,7 +27,7 @@ try {
         if ($user && password_verify($password, $user['password'])) {
             // Set session variables
             $_SESSION['user_id'] = $user['id'];
-            $_SESSION['user_name'] = $user['name'];
+            $_SESSION['user_name'] = $user['full_name'];
 
             echo "Login successful! Welcome, " . $_SESSION['user_name'];
         } else {

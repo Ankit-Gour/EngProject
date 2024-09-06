@@ -28,7 +28,7 @@ try {
         }
 
         // Insert new user into the database
-        $stmt = $pdo->prepare('INSERT INTO users (name, email, password) VALUES (:name, :email, :password)');
+        $stmt = $pdo->prepare('INSERT INTO users (full_name, email, password) VALUES (:name, :email, :password)');
         $stmt->execute([
             ':name' => $name,
             ':email' => $email,
