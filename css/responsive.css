@@ -50,6 +50,11 @@
 }
 
 @media (max-width: 767px) {
+
+  .slider_section .carousel_btn-container .carousel-control-prev,
+.slider_section .carousel_btn-container .carousel-control-next {
+  background-color: #ff4f5a;
+}
   .hero_area {
     background: none;
     background-color: #1a2e35;

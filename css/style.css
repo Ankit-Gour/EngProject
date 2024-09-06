@@ -579,7 +579,7 @@ a:focus {
   color: #252525;
 }
 
-.freelance_section .tab_container .t-link-box[aria-expanded="true"] .img-box, .freelance_section .tab_container .t-link-box:hover .img-box {
+.freelance_section .tab_container .t-link-box[aria-expanded="true"] .img-box, .freelance_section .tab_container .t-link-box .img-box {
   background-color: #1cbbb4;
 }
 
