@@ -39,10 +39,10 @@ h1, .h1 {
 }
 
 .heading_container h2 {
-  font-weight: bold;
-  text-transform: uppercase;
+	font-weight: bold;
+	text-transform: uppercase;
+	margin-top: 42px;
 }
-
 /*header section*/
 .hero_area {
   height: calc(100vh - 30px);
@@ -163,7 +163,7 @@ a:focus {
 .navbar-brand span {
   font-weight: bold;
   color: #ffffff;
-  font-size: 24px;
+  font-size: 18px;
 }
 
 .custom_nav-container {
