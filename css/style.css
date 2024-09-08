@@ -179,10 +179,13 @@ a:focus {
 }
 
 .custom_nav-container .navbar-toggler .navbar-toggler-icon {
-  background-image: url(../images/menu.png);
-  background-size: 30px;
-  width: 32px;
-  height: 32px;
+	background-image: url(../images/menu.png);
+	background-size: 30px;
+	width: 32px;
+	height: 23px;
+	border: none;
+  text-decoration: none;
+  background-color: none;
 }
 
 .lg_toggl-btn {
