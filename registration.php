@@ -10,32 +10,28 @@ $conn = new mysqli($servername, $username, $password, $dbname);
 
 // Check connection
 if ($conn->connect_error) {
-  die("Connection failed: " . $conn->connect_error);
+    die("Connection failed: " . $conn->connect_error);
 }
 
 // Capture form data and prevent SQL injection
 $full_name = $conn->real_escape_string($_POST['full_name']);
-$user_name = $conn->real_escape_string($_POST['username']);
+$highestQualification = $conn->real_escape_string($_POST['highestQualification']);
 $email = $conn->real_escape_string($_POST['email']);
-$phone = $conn->real_escape_string($_POST['phone']);
-$password = password_hash($_POST['password'], PASSWORD_DEFAULT); // Hash password for security
-$confirm_password = $_POST['confirm_password'];
+$wnumber = $conn->real_escape_string($_POST['wnumber']);
+$anumber = $conn->real_escape_string($_POST['anumber']);
+$address = $conn->real_escape_string($_POST['address']);
 $gender = $conn->real_escape_string($_POST['gender']);
 
-// Ensure passwords match
-if ($_POST['password'] !== $confirm_password) {
-  echo "Passwords do not match!";
-  exit();
-}
-
 // SQL to insert data
-$sql = "INSERT INTO users (full_name, username, email, phone, password, gender)
-VALUES ('$full_name', '$user_name', '$email', '$phone', '$password', '$gender')";
+$sql = "INSERT INTO users (full_name, gender, highestQualification, email, wnumber, anumber, address)
+VALUES ('$full_name', '$gender', '$highestQualification', '$email', '$wnumber', '$anumber', '$address')";
 
 if ($conn->query($sql) === TRUE) {
-  echo "Registration successful!";
+    // Redirect to success.html with name in the query string
+    header("Location: success.php?name=" . urlencode($full_name));
+    exit();
 } else {
-  echo "Error: " . $sql . "<br>" . $conn->error;
+    echo "Error: " . $sql . "<br>" . $conn->error;
 }
 
 $conn->close();

@@ -46,8 +46,9 @@ h1, .h1 {
 /*header section*/
 .hero_area {
   height: calc(100vh - 30px);
-  background: -webkit-gradient(linear, left top, right top, color-stop(55%, #1a2e35), color-stop(55%, #1cbbb4));
-  background: linear-gradient(to right, #1a2e35 55%, #1cbbb4 55%);
+  background: -webkit-gradient(linear, left top, right top, color-stop(55%, #46c327), color-stop(55%, #68c417));
+  background: linear-gradient(to right, #1ebf18 55%, #31bb1c 55%);
+  
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -61,7 +62,7 @@ h1, .h1 {
 .sub_page .hero_area {
   height: auto;
   background: none;
-  background-color: #1a2e35;
+  background-color: #0ca1d7;
 }
 
 .hero_area.sub_pages {
@@ -69,7 +70,8 @@ h1, .h1 {
 }
 
 .header_section {
-  overflow-x: hidden;
+	overflow-x: hidden;
+	background: #51bd51;
 }
 
 .header_section .container-fluid {
@@ -258,38 +260,22 @@ a:focus {
 }
 
 .slider_section .detail-box .btn-box .btn-1 {
-  display: inline-block;
-  padding: 10px 0;
-  background-color: #ff4f5a;
-  color: #ffffff;
-  -webkit-transition: all 0.3s;
-  transition: all 0.3s;
-  border: 1px solid transparent;
-  border-radius: 0;
+	display: inline-block;
+	padding: 10px 0;
+	background-color: #0c955c;
+	color: #ffffff;
+	-webkit-transition: all 0.3s;
+	transition: all 0.3s;
+	border: 1px solid transparent;
+	border-radius: 0;
 }
 
 .slider_section .detail-box .btn-box .btn-1:hover {
   background-color: transparent;
-  border-color: #ff4f5a;
-  color: #ff4f5a;
-}
-
-.slider_section .detail-box .btn-box .btn-2 {
-  display: inline-block;
-  padding: 10px 0;
-  background-color: #ffffff;
-  color: #252525;
-  -webkit-transition: all 0.3s;
-  transition: all 0.3s;
-  border: 1px solid transparent;
-  border-radius: 0;
-}
-
-.slider_section .detail-box .btn-box .btn-2:hover {
-  background-color: transparent;
-  border-color: #ffffff;
+  border-color:none;
   color: #ffffff;
 }
+
 
 .slider_section .img-container .img-box img {
   width: 100%;
@@ -396,7 +382,7 @@ a:focus {
 .experience_section .detail-box .btn-box .btn-1 {
   display: inline-block;
   padding: 10px 0;
-  background-color: #ff4f5a;
+  background-color: #2c8406;
   color: #ffffff;
   -webkit-transition: all 0.3s;
   transition: all 0.3s;
@@ -406,35 +392,21 @@ a:focus {
 
 .experience_section .detail-box .btn-box .btn-1:hover {
   background-color: transparent;
-  border-color: #ff4f5a;
-  color: #ff4f5a;
+  border-color:none;
+  color: #047511;
 }
 
-.experience_section .detail-box .btn-box .btn-2 {
-  display: inline-block;
-  padding: 10px 0;
-  background-color: #1a2e35;
-  color: #ffffff;
-  -webkit-transition: all 0.3s;
-  transition: all 0.3s;
-  border: 1px solid transparent;
-  border-radius: 0;
-}
-
-.experience_section .detail-box .btn-box .btn-2:hover {
-  background-color: transparent;
-  border-color: #1a2e35;
-  color: #1a2e35;
-}
 
 .experience_section .img-box img {
-  width: 100%;
+	width: 100%;
+	border-radius: 8%;
 }
 
 .category_section {
-  background-color: #1cbbb4;
-  color: #ffffff;
-  text-align: center;
+
+	color: #ffffff;
+	text-align: center;
+	background: #51bd51;
 }
 
 .category_section .heading_container {
@@ -636,11 +608,9 @@ a:focus {
   background-image: url(../images/next-angle.png);
 }
 
-/* info section */
 .info_section {
-  position: relative;
-  background-color: #1a2e35;
-  color: #ffffff;
+	color: #ffffff;
+	background: #51bd51;
 }
 
 .info_section .heading_container {

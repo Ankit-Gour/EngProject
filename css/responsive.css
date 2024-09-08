@@ -3,6 +3,7 @@
 @media (max-width: 992px) {
   .hero_area {
     height: auto;
+    background-color: #1cbb1c;
   }
 
   #navbarSupportedContent {
@@ -53,13 +54,14 @@
 
   .slider_section .carousel_btn-container .carousel-control-prev,
 .slider_section .carousel_btn-container .carousel-control-next {
-  background-color: #ff4f5a;
+  background-color: #0f8808;
 }
-  .hero_area {
-    background: none;
-    background-color: #1a2e35;
-    /* background: linear-gradient(to bottom, #1a2e35 40%, #1cbbb4 40%); */
-  }
+.hero_area {
+	background: none;
+	background-color: #1cbb1c;
+	/* background: linear-gradient(to bottom, #1a2e35 40%, #1cbbb4 40%); */
+	background: #51bd51;
+}
 
   .slider_section {
     text-align: center;
@@ -80,9 +82,9 @@
   }
 
   .slider_section .img-container .img-box {
-
     padding: 45px 0;
-    background-color: #1cbbb4;
+
+    background: #51bd51;
   }
 
   .experience_section .img-box {
