@@ -16,6 +16,7 @@
 
   <!-- bootstrap core css -->
   <link rel="stylesheet" type="text/css" href="css/bootstrap.css" />
+
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
   <link href="https://fonts.googleapis.com/css?family=Poppins:400,700&display=swap" rel="stylesheet">
   <!-- Custom styles for this template -->
@@ -35,51 +36,35 @@
 
   <div class="hero_area">
     <!-- header section strats -->
-    <header class="header_section">
-      <div class="container-fluid" id="header">
-        <nav class="navbar navbar-expand-lg custom_nav-container">
-          <a class="navbar-brand" href="index.html">
-          
-            <span>
-              Ascend Journey
-            </span>
-          </a>
-          <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-          </button>
-
-          <div class="collapse navbar-collapse" id="navbarSupportedContent">
-            <ul class="navbar-nav  ">
-              <li class="nav-item active">
-                <a class="nav-link" href="index.html">Home <span class="sr-only">(current)</span></a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="courses.html">Courses </a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="about.html"> About</a>
-              </li>
-              <li class="nav-item">
-                <button type="button" class="nav-link " data-toggle="modal" data-target="#registrationModal">
-                  Register Now
-              </button>
-              </li>
-            </ul>
-            <div class="user_option">
-            </div>
-          </div>
-          <div>
-            <div class="custom_menu-btn ">
-              <button>
-                <span class=" s-1"></span>
-                <span class="s-2"></span>
-                <span class="s-3"></span>
-              </button>
-            </div>
-          </div>
-        </nav>
+    <nav class="navbar navbar-expand-lg bg-body-tertiary">
+      <div class="container-fluid">
+        <a class="navbar-brand" href="#">Ascend Journey</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+          <ul class="navbar-nav">
+            <li class="nav-item active">
+              <a class="nav-link" href="index.html">Home <span class="sr-only">(current)</span></a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="courses.html">Courses </a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="login.php">Login  </a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="about.html"> About</a>
+            </li>
+            <li class="nav-item">
+              <button type="button" class="nav-link " data-toggle="modal" data-target="#registrationModal">
+                Register Now
+            </button>
+            </li>
+          </ul>
+        </div>
       </div>
-    </header>
+    </nav>
     <!-- end header section -->
     <!-- slider section -->
     <section class="slider_section " id="navbar">
@@ -206,7 +191,7 @@
         </button>
       </div>
       <div class="modal-body">
-        <form action="process_registration.php" method="POST">
+        <form action="registration.php" method="POST">
           <div class="form-group">
             <label for="fullName">Full Name:</label>
             <input type="text" class="form-control" id="fullName" name="fullName" required>
@@ -537,138 +522,56 @@
 
   <!-- end client section -->
 
-
-
-  <!-- info section -->
-
-  <section class="info_section ">
-    <div class="info_container layout_padding-top">
-      <div class="container">
-        <div class="info_top">
-          <a class="navbar-brand" href="index.html">
-          
-            <span>
-              Ascend Journey
-            </span>
-          </a>
-          <div class="social_box">
-            <a href="#">
-              <img src="images/fb.png" alt="">
-            </a>
-            <a href="#">
-              <img src="images/twitter.png" alt="">
-            </a>
-            <a href="#">
-              <img src="images/linkedin.png" alt="">
-            </a>
-            <a href="#">
-              <img src="images/instagram.png" alt="">
-            </a>
-            <a href="#">
-              <img src="images/youtube.png" alt="">
-            </a>
-          </div>
-        </div>
-
-        <div class="info_main">
-          <div class="row">
-            <div class="col-md-3 col-lg-2">
-              <div class="info_link-box">
-                <h5>
-                  Useful Link
-                </h5>
-                <ul>
-                  <li class=" active">
-                    <a class="" href="index.html">Home <span class="sr-only">(current)</span></a>
-                  </li>
-                  <li class=" active">
-                    <a class="" href="courses.html">Courses <span class="sr-only">(current)</span></a>
-                  </li>
-                  <li class="">
-                    <a class="" href="about.html">About </a>
-                  </li>
-                </ul>
-              </div>
-            </div>
-            <div class="col-md-3 ">
-              <h5>
-                Office
-              </h5>
-              <p>
-                Mr. Rohan Patel
-123, Shree Krishna Apartments
-Gulmohar Road
-Vile Parle East
-Mumbai, Maharashtra - 400057
-India
-              </p>
-            </div>
-
-           
-        <div class="row">
-          <div class="col-lg-9 col-md-10 mx-auto">
-            <div class="info_contact layout_padding2">
-              <div class="row">
-                <div class="col-md-3">
-                  <a href="#" class="link-box">
-                    <div class="img-box">
-                      <img src="images/location.png" alt="">
-                    </div>
-                    <div class="detail-box">
-                      <h6>
-                        Sagar
-                      </h6>
-                    </div>
-                  </a>
-                </div>
-                <div class="col-md-4">
-                  <a href="#" class="link-box">
-                    <div class="img-box">
-                      <img src="images/mail.png" alt="">
-                    </div>
-                    <div class="detail-box">
-                      <h6>
-                        rohan1586@gmail.com
-                      </h6>
-                    </div>
-                  </a>
-                </div>
-                <div class="col-md-5">
-                  <a href="#" class="link-box">
-                    <div class="img-box">
-                      <img src="images/call.png" alt="">
-                    </div>
-                    <div class="detail-box">
-                      <h6>
-                        Call +91 9399484598
-                      </h6>
-                    </div>
-                  </a>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-
-      </div>
-    </div>
-  </section>
-
-  <!-- end info section -->
-
-  <!-- footer section -->
-  <footer class="container-fluid footer_section ">
+  <footer class="footer_section py-3 my-4">
     <div class="container">
-     
+        <!-- Logo -->
+        <div class="text-center mb-3">
+            <a class="navbar-brand" href="index.html">
+                <span class="logo-text">Ascend Journey</span>
+            </a>
+        </div>
+        
+        <!-- Navigation Links -->
+        <ul class="nav justify-content-center border-bottom pb-3 mb-3">
+            <li class="nav-item"><a href="index.html" class="nav-link px-2 text-body-secondary">Home</a></li>
+            <li class="nav-item"><a href="courses.html" class="nav-link px-2 text-body-secondary">Courses</a></li>
+            <li class="nav-item"><a href="about.html" class="nav-link px-2 text-body-secondary">About</a></li>
+            <li class="nav-item"><a href="leads.php" class="nav-link px-2 text-body-secondary">Registrations</a></li>
+            <li class="nav-item"><a href="akc.php" class="nav-link px-2 text-body-secondary">Acknowledgement</a></li>
+        </ul>
+
+        <!-- Contact Information -->
+        <div class="text-center">
+            <h6>Contact Information</h6>
+            <p class="text-body-secondary">Azmi Khan</p>
+            <p class="text-body-secondary">CEO and Director of Ascend Journey</p>
+            <p class="text-body-secondary">8878676404</p>
+            <p class="text-body-secondary">Mohammed8azmi@gmail.com</p>
+        </div>
+
+        <!-- LinkedIn Icon -->
+        <div class="text-center mb-3">
+            <a href="#"><img src="images/linkedin.png" alt="LinkedIn" class="social-icon"></a>
+        </div>
+
+        <!-- Google Map -->
+        <div class="map-container mb-3">
+            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3655.4872343082757!2d78.57644647398439!3d23.62271589366878!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x397ed6a7b663de4f%3A0xb2a2de82ac4ad928!2sGyanveer%20College!5e0!3m2!1sen!2sin!4v1727889725367!5m2!1sen!2sin" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+        </div>
+
+        <!-- Copyright Notice -->
+        <p class="text-center text-body-secondary">© 2024 Ascend Journey | All Rights Reserved</p>
     </div>
+</footer>
+
+
   
-  </footer>
-  <!-- end  footer section -->
 
 
   <script src="js/jquery-3.4.1.min.js"></script>
   <script src="js/bootstrap.js"></script>
   <script src="js/custom.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
 
 
 </body>
