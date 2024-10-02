@@ -1,80 +1,163 @@
-<html><head>
-  <!-- Basic -->
-  <meta charset="utf-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <!-- Mobile Metas -->
-  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-  <!-- Site Metas -->
-  <meta name="keywords" content="">
-  <meta name="description" content="">
-  <meta name="author" content="">
+<?php
+// Database connection parameters
+$servername = "localhost"; // Change if needed
+$username = "root"; // Your MySQL username
+$password = "1913"; // Your MySQL password
+$dbname = "english"; // Your desired database name
 
-  <title>Learn English</title>
+// Create connection
+$conn = new mysqli($servername, $username, $password);
 
+// Check connection
+if ($conn->connect_error) {
+    die("Connection failed: " . $conn->connect_error);
+}
+
+// Create database if it doesn't exist
+$sql = "CREATE DATABASE IF NOT EXISTS $dbname";
+if ($conn->query($sql) === TRUE) {
+    // Database created or already exists
+    $conn->select_db($dbname);
+
+    // Create table if it doesn't exist
+    $sql = "CREATE TABLE IF NOT EXISTS team_members (
+        id VARCHAR(50) PRIMARY KEY,
+        name VARCHAR(100) NOT NULL,
+        password VARCHAR(255) NOT NULL
+    )";
+    
+    if ($conn->query($sql) !== TRUE) {
+        die("Error creating table: " . $conn->error);
+    }
+} else {
+    die("Error creating database: " . $conn->error);
+}
+
+// Initialize a message variable
+$message = '';
+
+// Handle form submission
+if ($_SERVER["REQUEST_METHOD"] == "POST") {
+    // Check if logging in as a team member
+    if (isset($_POST['login'])) {
+        $teamId = $_POST['team_id'];
+        $password = $_POST['password'];
+
+        // Prepare and bind
+        $stmt = $conn->prepare("SELECT * FROM team_members WHERE id = ? AND password = ?");
+        if ($stmt) {
+            $stmt->bind_param("ss", $teamId, $password);
+            $stmt->execute();
+            $result = $stmt->get_result();
+
+            // Validate credentials
+            if ($result->num_rows > 0) {
+                $row = $result->fetch_assoc();
+                $teamMemberName = $row['name']; // Get the member's name
+
+                // Redirect to team.html with the name as a query parameter
+                header("Location: team.html?name=" . urlencode($teamMemberName));
+                exit(); // Always call exit after a redirect
+            } else {
+                $message = "Invalid Team ID or Password!";
+            }
+            $stmt->close();
+        } else {
+            $message = "Error preparing statement: " . $conn->error;
+        }
+    }
+
+    // Check if adding a new team member
+    if (isset($_POST['add_member'])) {
+        $newId = $_POST['new_team_id'];
+        $newName = $_POST['new_name'];
+        $newPassword = $_POST['new_password'];
+        $securityKey = $_POST['security_key']; // High security key for adding new members
+
+        // Verify security key (set your own secure key)
+        $correctSecurityKey = "your-secure-key"; // Change this to your actual security key
+        if ($securityKey !== $correctSecurityKey) {
+            $message = "Invalid security key!";
+        } else {
+            // Prepare and bind for new member insertion
+            $stmt = $conn->prepare("INSERT INTO team_members (id, name, password) VALUES (?, ?, ?)");
+            if ($stmt) {
+                $stmt->bind_param("sss", $newId, $newName, $newPassword);
+
+                // Execute and check if successful
+                if ($stmt->execute()) {
+                    $message = "New team member $newName added successfully!";
+                } else {
+                    $message = "Error adding new member: " . $conn->error;
+                }
+                $stmt->close();
+            } else {
+                $message = "Error preparing statement: " . $conn->error;
+            }
+        }
+    }
+}
+
+$conn->close();
+?>
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Team Login</title>
+  
+    
   <!-- bootstrap core css -->
-  <link rel="stylesheet" type="text/css" href="css/bootstrap.css">
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
-  <link href="https://fonts.googleapis.com/css?family=Poppins:400,700&amp;display=swap" rel="stylesheet">
-  <!-- Custom styles for this template -->
-  <link href="css/style.css" rel="stylesheet">
-  <!-- responsive style -->
-  <link href="css/responsive.css" rel="stylesheet">
-  <style>
+  <link rel="stylesheet" type="text/css" href="css/bootstrap.css" />
+
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+<link href="https://fonts.googleapis.com/css?family=Poppins:400,700&display=swap" rel="stylesheet">
+<!-- Custom styles for this template -->
+<link href="css/style.css" rel="stylesheet" />
+<!-- responsive style -->
+<link href="css/responsive.css" rel="stylesheet" />
+<style>
     .hero_area {
       height: 69px;}
   </style>
 </head>
-
 <body>
-  
-  <div class="hero_area">
-    <!-- header section strats -->
-    <header class="header_section">
-      <div class="container-fluid" id="header">
-        <nav class="navbar navbar-expand-lg custom_nav-container">
-          <a class="navbar-brand" href="index.html">
-          
-            <span>
-              Ascend Journey
-            </span>
-          </a>
-          <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-          </button>
 
-          <div class="collapse navbar-collapse" id="navbarSupportedContent">
-            <ul class="navbar-nav  ">
-              <li class="nav-item active">
-                <a class="nav-link" href="index.html">Home <span class="sr-only">(current)</span></a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="courses.html">Courses </a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="about.html"> About</a>
-              </li>
-              <li class="nav-item">
-                <button type="button" class="nav-link " data-toggle="modal" data-target="#registrationModal">
-                  Register Now
-              </button>
-              </li>
-            </ul>
-            <div class="user_option">
-            </div>
-          </div>
-          <div>
-            <div class="custom_menu-btn ">
-              <button>
-                <span class=" s-1"></span>
-                <span class="s-2"></span>
-                <span class="s-3"></span>
-              </button>
-            </div>
-          </div>
-        </nav>
+
+<div class="hero_area">
+    <!-- header section strats -->
+    <nav class="navbar navbar-expand-lg">
+      <div class="container-fluid">
+        <a class="navbar-brand" href="#" >Ascend Journey</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+          <ul class="navbar-nav">
+            <li class="nav-item active">
+              <a class="nav-link" href="index.html">Home <span class="sr-only">(current)</span></a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="courses.html">Courses </a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="login.php">Login  </a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="about.html"> About</a>
+            </li>
+            <li class="nav-item">
+              <button type="button" class="nav-link " data-toggle="modal" data-target="#registrationModal">
+                Register Now
+            </button>
+            </li>
+          </ul>
+        </div>
       </div>
-    </header>
-   
+    </nav>
+    <!-- end header section -->
    
   </div>
 
@@ -96,7 +179,7 @@
         </button>
       </div>
       <div class="modal-body">
-        <form action="process_registration.php" method="POST">
+        <form action="registration.php" method="POST">
           <div class="form-group">
             <label for="fullName">Full Name:</label>
             <input type="text" class="form-control" id="fullName" name="fullName" required>
@@ -148,8 +231,39 @@
 </div>
 
 
-  <!-- experience section -->
 
+
+<div class="container" style="max-width: 500px; margin:20px auto; padding: 20px; background:#19d925;; border-radius: 8px; box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);">
+    <h1 style="text-align: center; color: white;">Team Login</h1>
+    <p class="message" style="color: red; text-align: center;"><?php echo $message; ?></p>
+
+    <!-- Login Form -->
+    <form method="POST">
+        <h2 style="color: white;">Login as Team Member</h2>
+        <input type="text" name="team_id" placeholder="Team ID" required style="width: 100%; padding: 10px; margin: 10px 0; border: 1px solid #ccc; border-radius: 5px;">
+        <input type="password" name="password" placeholder="Password" required style="width: 100%; padding: 10px; margin: 10px 0; border: 1px solid #ccc; border-radius: 5px;">
+        <button type="submit" name="login" style="width: 100%; padding: 10px; background-color: white; color: #007bff; border: none; border-radius: 5px; cursor: pointer;">Login</button>
+    </form>
+
+    <hr style="border: 1px solid white;">
+
+    <!-- Add New Team Member Form -->
+    <form method="POST">
+        <h2 style="color: white;">Add New Team Member</h2>
+        <input type="text" name="new_team_id" placeholder="New Team ID" required style="width: 100%; padding: 10px; margin: 10px 0; border: 1px solid #ccc; border-radius: 5px;">
+        <input type="text" name="new_name" placeholder="New Team Member Name" required style="width: 100%; padding: 10px; margin: 10px 0; border: 1px solid #ccc; border-radius: 5px;">
+        <input type="password" name="new_password" placeholder="New Password" required style="width: 100%; padding: 10px; margin: 10px 0; border: 1px solid #ccc; border-radius: 5px;">
+        <input type="text" name="security_key" placeholder="Security Key" required style="width: 100%; padding: 10px; margin: 10px 0; border: 1px solid #ccc; border-radius: 5px;">
+        <button type="submit" name="add_member" style="width: 100%; padding: 10px; background-color: white; color: #007bff; border: none; border-radius: 5px; cursor: pointer;">Add Team Member</button>
+    </form>
+</div>
+
+
+
+
+
+
+  <!-- experience section -->
   <section class="experience_section layout_padding">
     <div class="container">
         <div class="row">
@@ -161,13 +275,17 @@
             <div class="col-md-7">
                 <div class="detail-box">
                     <div class="heading_container">
-                        <h2>Azmi Khan</h2>
+                        <h2>
+                            Learn with the Best: Azmi Khan
+                        </h2>
                     </div>
-                    <p>Azmi Khan is a visionary CEO and director of Ascend Journey, dedicated to transforming language education. With a deep passion for teaching, he ensures that all programs are designed to meet the individual needs of each student. Whether you are a beginner or looking to enhance your skills, Azmi Khan provides expert guidance that fosters fluency, confidence, and mastery in speaking, writing, and understanding English. His commitment to excellence and personalized approach have made him a trusted mentor, helping students unlock their potential and succeed in both academics and life.</p>
+                    <p>
+                        Ascend Journey is led by Azmi Khan, a visionary CEO with a deep passion for language education. Master English with expert guidance through personalized courses tailored to your needs. Whether you're a beginner or looking to advance your skills, our experienced instructors will help you gain fluency, confidence, and mastery in speaking, writing, and understanding English, all at your pace. Join us to achieve measurable outcomes and reach your full potential!
+                    </p>
                     <div class="btn-box">
-                      <button type="button" class="nav-link " data-toggle="modal" data-target="#registrationModal">
-                        Register Now
-                    </button>
+                        <button type="button" class="nav-link register-btn" data-toggle="modal" data-target="#registrationModal">
+                            Register Now
+                        </button>
                     </div>
                 </div>
             </div>
@@ -235,17 +353,17 @@
           </div>
           <div class="detail-box">
             <h5>
-              Listening &amp; Speaking Practice
+              Listening & Speaking Practice
             </h5>
           </div>
         </div>
         <div class="box">
           <div class="img-box">
-            <img src="images/c6.png" width="80" height="80" alt="">
+            <img src="images/c6.png" width="80" height="80"  alt="">
           </div>
           <div class="detail-box">
             <h5>
-              Reading &amp; Comprehension
+              Reading & Comprehension
             </h5>
           </div>
         </div>
@@ -362,7 +480,6 @@
       </div>
     </div>
   </section>
-
   <!-- end freelance section -->
 
   <!-- client section -->
@@ -427,257 +544,59 @@
 
   <!-- end client section -->
 
-
-
-  <!-- info section -->
-
-  <section class="info_section ">
-    <div class="info_container layout_padding-top">
-      <div class="container">
-        <div class="info_top">
-          <div class="info_logo">
-            <img src="images/logo.png" alt="">
-            
-          </div>
-          <div class="social_box">
-            <a href="#">
-              <img src="images/fb.png" alt="">
-            </a>
-            <a href="#">
-              <img src="images/twitter.png" alt="">
-            </a>
-            <a href="#">
-              <img src="images/linkedin.png" alt="">
-            </a>
-            <a href="#">
-              <img src="images/instagram.png" alt="">
-            </a>
-            <a href="#">
-              <img src="images/youtube.png" alt="">
-            </a>
-          </div>
-        </div>
-
-        <div class="info_main">
-          <div class="row">
-            <div class="col-md-3 col-lg-2">
-              <div class="info_link-box">
-                <h5>
-                  Useful Link
-                </h5>
-                <ul>
-                  <li class=" active">
-                    <a class="" href="index.html">Home <span class="sr-only">(current)</span></a>
-                  </li>
-                  <li class=" active">
-                    <a class="" href="courses.html">Courses <span class="sr-only">(current)</span></a>
-                  </li>
-                  <li class="">
-                    <a class="" href="about.html">About </a>
-                  </li>
-                </ul>
-              </div>
-            </div>
-            <div class="col-md-3 ">
-              <h5>
-                Office
-              </h5>
-              <p>
-                Mr. Rohan Patel
-123, Shree Krishna Apartments
-Gulmohar Road
-Vile Parle East
-Mumbai, Maharashtra - 400057
-India
-              </p>
-            </div>
-
-            <!-- <div class="col-md-3 col-lg-2 offset-lg-1">
-              <h5>
-                Information
-              </h5>
-              <p>
-                Readable content of a page when looking at its layoutreadable content of a page when looking at its layout
-              </p>
-            </div> -->
-
-            <!-- <div class="col-md-3  offset-lg-1">
-              <div class="info_form ">
-                <h5>
-                  Newsletter
-                </h5>
-                <form action="">
-                  <input type="email" placeholder="Email">
-                  <button>
-                    Subscribe
-                  </button>
-                </form>
-              </div>
-            </div>
-          </div>
-        </div> -->
-        <div class="row">
-          <div class="col-lg-9 col-md-10 mx-auto">
-            <div class="info_contact layout_padding2">
-              <div class="row">
-                <div class="col-md-3">
-                  <a href="#" class="link-box">
-                    <div class="img-box">
-                      <img src="images/location.png" alt="">
-                    </div>
-                    <div class="detail-box">
-                      <h6>
-                        Sagar
-                      </h6>
-                    </div>
-                  </a>
-                </div>
-                <div class="col-md-4">
-                  <a href="#" class="link-box">
-                    <div class="img-box">
-                      <img src="images/mail.png" alt="">
-                    </div>
-                    <div class="detail-box">
-                      <h6>
-                        rohan1586@gmail.com
-                      </h6>
-                    </div>
-                  </a>
-                </div>
-                <div class="col-md-5">
-                  <a href="#" class="link-box">
-                    <div class="img-box">
-                      <img src="images/call.png" alt="">
-                    </div>
-                    <div class="detail-box">
-                      <h6>
-                        Call +91 9399484598
-                      </h6>
-                    </div>
-                  </a>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-
-      </div>
-    </div>
-  </div></div></section>
-
-  <!-- end info section -->
-
-  <!-- footer section -->
-  <footer class="container-fluid footer_section ">
+  <footer class="footer_section py-3 my-4">
     <div class="container">
-      <!-- <p>
-        &copy; <span id="displayDate"></span> All Rights Reserved By
-        <a href="https://html.design/">Free Html Templates</a>
-      </p> -->
+        <!-- Logo -->
+        <div class="text-center mb-3">
+            <a class="navbar-brand" href="index.html">
+                <span class="logo-text">Ascend Journey</span>
+            </a>
+        </div>
+        
+        <!-- Navigation Links -->
+        <ul class="nav justify-content-center border-bottom pb-3 mb-3">
+            <li class="nav-item"><a href="index.html" class="nav-link px-2 text-body-secondary">Home</a></li>
+            <li class="nav-item"><a href="courses.html" class="nav-link px-2 text-body-secondary">Courses</a></li>
+            <li class="nav-item"><a href="about.html" class="nav-link px-2 text-body-secondary">About</a></li>
+          
+           
+        </ul>
+
+        <!-- Contact Information -->
+        <div class="text-center">
+            <h6>Contact Information</h6>
+            <p class="text-body-secondary">Azmi Khan</p>
+            <p class="text-body-secondary">CEO and Director of Ascend Journey</p>
+            <p class="text-body-secondary">8878676404</p>
+            <p class="text-body-secondary">Mohammed8azmi@gmail.com</p>
+        </div>
+
+        <!-- LinkedIn Icon -->
+        <div class="text-center mb-3">
+            <a href="#"><img src="images/linkedin.png" alt="LinkedIn" class="social-icon"></a>
+        </div>
+
+        <!-- Google Map -->
+        <div class="map-container mb-3">
+            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3655.4872343082757!2d78.57644647398439!3d23.62271589366878!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x397ed6a7b663de4f%3A0xb2a2de82ac4ad928!2sGyanveer%20College!5e0!3m2!1sen!2sin!4v1727889725367!5m2!1sen!2sin" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+        </div>
+
+        <!-- Copyright Notice -->
+        <p class="text-center text-body-secondary">© 2024 Ascend Journey | All Rights Reserved</p>
     </div>
+</footer>
+
+
   
-  </footer>
-  <!-- end  footer section -->
 
 
   <script src="js/jquery-3.4.1.min.js"></script>
   <script src="js/bootstrap.js"></script>
   <script src="js/custom.js"></script>
-
-
-<!-- Code injected by live-server -->
-<script>
-	// <![CDATA[  <-- For SVG support
-	if ('WebSocket' in window) {
-		(function () {
-			function refreshCSS() {
-				var sheets = [].slice.call(document.getElementsByTagName("link"));
-				var head = document.getElementsByTagName("head")[0];
-				for (var i = 0; i < sheets.length; ++i) {
-					var elem = sheets[i];
-					var parent = elem.parentElement || head;
-					parent.removeChild(elem);
-					var rel = elem.rel;
-					if (elem.href && typeof rel != "string" || rel.length == 0 || rel.toLowerCase() == "stylesheet") {
-						var url = elem.href.replace(/(&|\?)_cacheOverride=\d+/, '');
-						elem.href = url + (url.indexOf('?') >= 0 ? '&' : '?') + '_cacheOverride=' + (new Date().valueOf());
-					}
-					parent.appendChild(elem);
-				}
-			}
-			var protocol = window.location.protocol === 'http:' ? 'ws://' : 'wss://';
-			var address = protocol + window.location.host + window.location.pathname + '/ws';
-			var socket = new WebSocket(address);
-			socket.onmessage = function (msg) {
-				if (msg.data == 'reload') window.location.reload();
-				else if (msg.data == 'refreshcss') refreshCSS();
-			};
-			if (sessionStorage && !sessionStorage.getItem('IsThisFirstTime_Log_From_LiveServer')) {
-				console.log('Live reload enabled.');
-				sessionStorage.setItem('IsThisFirstTime_Log_From_LiveServer', true);
-			}
-		})();
-	}
-	else {
-		console.error('Upgrade your browser. This Browser is NOT supported WebSocket for Live-Reloading.');
-	}
-	// ]]>
-</script>
-
-<!-- Code injected by live-server -->
-<script>
-	// <![CDATA[  <-- For SVG support
-	if ('WebSocket' in window) {
-		(function () {
-			function refreshCSS() {
-				var sheets = [].slice.call(document.getElementsByTagName("link"));
-				var head = document.getElementsByTagName("head")[0];
-				for (var i = 0; i < sheets.length; ++i) {
-					var elem = sheets[i];
-					var parent = elem.parentElement || head;
-					parent.removeChild(elem);
-					var rel = elem.rel;
-					if (elem.href && typeof rel != "string" || rel.length == 0 || rel.toLowerCase() == "stylesheet") {
-						var url = elem.href.replace(/(&|\?)_cacheOverride=\d+/, '');
-						elem.href = url + (url.indexOf('?') >= 0 ? '&' : '?') + '_cacheOverride=' + (new Date().valueOf());
-					}
-					parent.appendChild(elem);
-				}
-			}
-			var protocol = window.location.protocol === 'http:' ? 'ws://' : 'wss://';
-			var address = protocol + window.location.host + window.location.pathname + '/ws';
-			var socket = new WebSocket(address);
-			socket.onmessage = function (msg) {
-				if (msg.data == 'reload') window.location.reload();
-				else if (msg.data == 'refreshcss') refreshCSS();
-			};
-			if (sessionStorage && !sessionStorage.getItem('IsThisFirstTime_Log_From_LiveServer')) {
-				console.log('Live reload enabled.');
-				sessionStorage.setItem('IsThisFirstTime_Log_From_LiveServer', true);
-			}
-		})();
-	}
-	else {
-		console.error('Upgrade your browser. This Browser is NOT supported WebSocket for Live-Reloading.');
-	}
-	// ]]>
-</script>
-</body><!-- Code injected--></html>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
 
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+</body>
+</html>
