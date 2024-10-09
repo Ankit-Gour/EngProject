@@ -75,7 +75,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $securityKey = $_POST['security_key']; // High security key for adding new members
 
         // Verify security key (set your own secure key)
-        $correctSecurityKey = "your-secure-key"; // Change this to your actual security key
+        $correctSecurityKey = "123"; // Change this to your actual security key
         if ($securityKey !== $correctSecurityKey) {
             $message = "Invalid security key!";
         } else {
@@ -233,7 +233,7 @@ $conn->close();
 
 
 
-<div class="container" style="max-width: 500px; margin:20px auto; padding: 20px; background:#19d925;; border-radius: 8px; box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);">
+<div class="container" style="max-width: 500px; margin:20px auto; padding: 20px; background:#28a745; border-radius: 8px; box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);">
     <h1 style="text-align: center; color: white;">Team Login</h1>
     <p class="message" style="color: red; text-align: center;"><?php echo $message; ?></p>
 
