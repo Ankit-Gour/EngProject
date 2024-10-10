@@ -319,11 +319,11 @@ $result = $conn->query($sql);
             <textarea class="form-control" id="address" name="address" rows="3" required></textarea>
           </div>
 
-          <button type="submit" class="btn btn-primary">Register</button>
+          <button type="submit" class="btn register-btn">Register</button>
         </form>
       </div>
       <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+        <button type="button" class="btn register-btn" data-dismiss="modal">Close</button>
       </div>
     </div>
   </div>

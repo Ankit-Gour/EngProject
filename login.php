@@ -103,7 +103,7 @@ $conn->close();
 
 @media (min-width: 990px) {
   .hero_area {
-	height: 65px;
+	height: 80px;
 
 }
   }
@@ -125,7 +125,7 @@ $conn->close();
 
         h2 {
             text-align: center;
-            color: #28a745; /* Green color */
+            color: black; /* Green color */
             margin-bottom: 20px;
             animation: slideInDown 0.5s ease-in-out;
         }
@@ -159,7 +159,7 @@ $conn->close();
         button {
             width: 100%;
             padding: 10px;
-            background-color: #28a745; /* Green background */
+            background-color: black; /* Green background */
             color: white;
             border: none;
             border-radius: 5px;
@@ -170,7 +170,8 @@ $conn->close();
         }
 
         button:hover {
-            background-color: #218838; /* Darker green on hover */
+            background-color:white; /* Darker green on hover */
+            color:black;
             transform: translateY(-2px); /* Lift effect on hover */
         }
 
@@ -222,27 +223,31 @@ $conn->close();
 
 
 
-  <div class="hero_area">
+<div class="hero_area">
     <!-- header section strats -->
     <nav class="navbar navbar-expand-lg">
       <div class="container-fluid">
-        <a class="navbar-brand" href="#" >Ascend Journey</a>
+        <a class="navbar-brand" href="index.html" >
+          <div id="logo">
+            <img src="images/logo.jpg">
+          </div>
+        </a>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
           <span class="navbar-toggler-icon"></span>
         </button>
         <div class="collapse navbar-collapse" id="navbarNav">
           <ul class="navbar-nav">
             <li class="nav-item active">
-              <a class="nav-link" href="index.html"> Home<span class="sr-only"></span></a>
+              <a class="nav-link" href="index.html">Home <span class="sr-only"></span></a>
             </li>
             <li class="nav-item">
+              <li class="nav-item">
+                <a class="nav-link" href="login.php">Login  </a>
+              </li>
               <a class="nav-link" href="courses.html">Courses </a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="login.php">Login  </a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="about.html"> About</a>
+              <a class="nav-link" href="about.html"> About Us</a>
             </li>
             <li class="nav-item">
               <button type="button" class="nav-link " data-toggle="modal" data-target="#registrationModal">
@@ -253,7 +258,6 @@ $conn->close();
         </div>
       </div>
     </nav>
-    <!-- end header section -->
 
   </div>
 
@@ -310,11 +314,11 @@ $conn->close();
             <textarea class="form-control" id="address" name="address" rows="3" required></textarea>
           </div>
 
-          <button type="submit" class="btn btn-primary">Register</button>
+          <button type="submit" class="btn register-btn">Register</button>
         </form>
       </div>
       <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+        <button type="button" class="btn register-btn" data-dismiss="modal">Close</button>
       </div>
     </div>
   </div>
@@ -359,36 +363,39 @@ $conn->close();
 
 
     
-  <footer class="footer_section py-3 my-4">
+    <footer class="footer_section py-3 my-4">
     <div class="container">
         <!-- Logo -->
         <div class="text-center mb-3">
-            <a class="navbar-brand" href="index.html">
-                <span class="logo-text">Ascend Journey</span>
-            </a>
+          <a class="navbar-brand" href="index.html" >
+            <div id="logo">
+              <img src="images/logo.jpg">
+            </div>
+          </a>
         </div>
         
         <!-- Navigation Links -->
         <ul class="nav justify-content-center border-bottom pb-3 mb-3">
-            <li class="nav-item"><a href="index.html" class="nav-link px-2 text-body-secondary">Home</a></li>
-            <li class="nav-item"><a href="courses.html" class="nav-link px-2 text-body-secondary">Courses</a></li>
-            <li class="nav-item"><a href="about.html" class="nav-link px-2 text-body-secondary">About</a></li>
-            <li class="nav-item"><a href="team.php" class="nav-link px-2 text-body-secondary">Team</a></li>
+            <li class="nav-item"><a href="index.html" class="nav-link ">Home</a></li>
+            <li class="nav-item"><a href="courses.html" class="nav-link ">Courses</a></li>
+            <li class="nav-item"><a href="about.html" class="nav-link ">About</a></li>
+            <li class="nav-item"><a href="team.php" class="nav-link ">Team</a></li>
            
         </ul>
 
         <!-- Contact Information -->
         <div class="text-center">
-            <h6>Contact Information</h6>
-            <p class="text-body-secondary">Azmi Khan</p>
-            <p class="text-body-secondary">CEO and Director of Ascend Journey</p>
-            <p class="text-body-secondary">8878676404</p>
-            <p class="text-body-secondary">Mohammed8azmi@gmail.com</p>
+          <h6 id="contact-info">Contact Information</h6>
+            <p class="">Azmi Khan</p>
+            <p class="">CEO and Director of Ascend Journey</p>
+            <p class="clickable"><a href="tel:8878676404">8878676404</a></p>
+            <p class="clickable"><a href="mailto:Mohammed8azmi@gmail.com">Mohammed8azmi@gmail.com</a></p>
+            
         </div>
 
         <!-- LinkedIn Icon -->
         <div class="text-center mb-3">
-            <a href="#"><img src="images/linkedin.png" alt="LinkedIn" class="social-icon"></a>
+            <a href="https://www.linkedin.com/in/azmi-khan-2a1778197/"><img src="images/linkedin.png" alt="LinkedIn" class="social-icon"></a>
         </div>
 
         <!-- Google Map -->
@@ -397,10 +404,19 @@ $conn->close();
         </div>
 
         <!-- Copyright Notice -->
-        <p class="text-center text-body-secondary">© 2024 Ascend Journey | All Rights Reserved</p>
+        <p class="text-center"> 
+          © 2024 Ascend Journey | All Rights Reserved | Site developed by 
+          <a href="https://github.com/Ankit-Gour" target="_blank" style="text-decoration: none;">Ankit Gour</a> 
+          <a href="https://github.com/Ankit-Gour" target="_blank">
+            <img src="https://github.githubassets.com/images/modules/logos_page/GitHub-Mark.png" alt="GitHub" width="20" height="20" style="vertical-align: middle; margin-left: 5px;border-radius: 5px;">
+          </a> 
+          <a href="https://www.linkedin.com/in/ankit-gour-0a00ab259" target="_blank">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/c/ca/LinkedIn_logo_initials.png" alt="LinkedIn" width="20" height="20" style="vertical-align: middle; margin-left: 5px;border-radius: 10px;">
+          </a>
+        </p>
+        
     </div>
 </footer>
-
 
   
 
