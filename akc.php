@@ -83,28 +83,54 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['delete_id'])) {
 $acknowledgements_sql = "SELECT * FROM user_data ORDER BY registered_at DESC";
 $acknowledgements_result = $conn->query($acknowledgements_sql);
 ?>
-
 <!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Generate Acknowledgement</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+<html>
 
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+<head>
+  <!-- Basic -->
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <!-- Mobile Metas -->
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+  <!-- Site Metas -->
+  <meta name="keywords" content="" />
+  <meta name="description" content="" />
+  <meta name="author" content="" />
+
+  <title>Learn English</title>
+
+  <!-- bootstrap core css -->
+  <link rel="stylesheet" type="text/css" href="css/bootstrap.css" />
+
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+  <link href="https://fonts.googleapis.com/css?family=Poppins:400,700&display=swap" rel="stylesheet">
+  <!-- Custom styles for this template -->
+  <link href="css/style.css" rel="stylesheet" />
+  <!-- responsive style -->
+  <link href="css/responsive.css" rel="stylesheet" />
+</head>
     <style>
         body {
-            background-color: #f0f4f8;
+            background-color: #f3bebe;
         }
-        .container {
-            margin-top: 50px;
-            max-width: 600px;
-            padding: 20px;
-            background: #fff;
-            border-radius: 10px;
-            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
-        }
+
+        .hero_area {
+            height: 80px;}
+            
+            
+            
+            .container-alag {
+	margin-top: 50px;
+	max-width: 600px;
+	padding: 20px;
+	background: #f3bebe;
+	border-radius: 10px;
+	box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+	margin: 54px auto;
+	padding: 27px;
+}
+
+
         h2 {
             text-align: center;
             margin-bottom: 20px;
@@ -123,24 +149,63 @@ $acknowledgements_result = $conn->query($acknowledgements_sql);
             padding: 15px;
             border: 1px solid #ddd;
             border-radius: 10px;
-            background-color: #fff;
+            background-color: #ab8f8f52;
             box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
             position: relative;
         }
-        .delete-btn {
-            position: absolute;
-            top: 10px;
-            right: 10px;
-            color: red;
-            border: none;
-            background: transparent;
-            cursor: pointer;
+        #deleteicon {
+	width: 32px;
+	margin: 3px auto;
+	/* padding: 10px; */
+}
+        #deleteicon img{
+width: 100%;
+height:100%;
+border-radius:5px;
         }
     </style>
 </head>
 <body>
 
-<div class="container">
+
+
+<div class="hero_area">
+    <!-- header section strats -->
+    <nav class="navbar navbar-expand-lg">
+      <div class="container-fluid">
+        <a class="navbar-brand" href="index.html" >
+          <div id="logo">
+            <img src="images/logo.jpg">
+          </div>
+        </a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+          <ul class="navbar-nav">
+            <li class="nav-item active">
+              <a class="nav-link" href="index.html">Home <span class="sr-only"></span></a>
+            </li>
+            <li class="nav-item">
+              <li class="nav-item">
+                <a class="nav-link" href="login.php">Login  </a>
+              </li>
+              <a class="nav-link" href="courses.html">Courses </a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="about.html"> About Us</a>
+            </li>
+            <li class="nav-item">
+              <button type="button" class="nav-link " data-toggle="modal" data-target="#registrationModal">
+                Register Now
+            </button>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav></div>
+
+<div class="container-alag">
     <h2>Generate Acknowledgement</h2>
     
     <?php if (!empty($error)): ?>
@@ -176,7 +241,7 @@ $acknowledgements_result = $conn->query($acknowledgements_sql);
             <label for="additional_info">Additional Information:</label>
             <textarea class="form-control" id="additional_info" name="additional_info" rows="3"></textarea>
         </div>
-        <button type="submit" name="add_acknowledgement" class="btn btn-primary">Acknowledge</button>
+        <button type="submit" name="add_acknowledgement" class="btn register-btn">Acknowledge</button>
     </form>
 
     <h2 class="mt-4">Generated Acknowledgements</h2>
@@ -194,8 +259,8 @@ $acknowledgements_result = $conn->query($acknowledgements_sql);
                <!-- Delete button -->
 <form action="" method="POST" style="display:inline;">
     <input type="hidden" name="delete_id" value="<?php echo $row['id']; ?>">
-    <button type="submit" class="delete-btn" title="Delete">
-        <i class="fas fa-trash-alt"></i> <!-- Font Awesome trash icon -->
+    <button type="submit" title="Delete">
+      <div id="deleteicon"><img src="images/delete.png"></div>
     </button>
 </form>
             </div>
@@ -205,9 +270,67 @@ $acknowledgements_result = $conn->query($acknowledgements_sql);
     <?php endif; ?>
 </div>
 
-<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
-<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+
+<footer class="footer_section py-3 my-4">
+    <div class="container">
+        <!-- Logo -->
+        <div class="text-center mb-3">
+          <a class="navbar-brand" href="index.html" >
+            <div id="logo">
+              <img src="images/logo.jpg">
+            </div>
+          </a>
+        </div>
+        
+        <!-- Navigation Links -->
+        <ul class="nav justify-content-center border-bottom pb-3 mb-3">
+            <li class="nav-item"><a href="index.html" class="nav-link ">Home</a></li>
+            <li class="nav-item"><a href="courses.html" class="nav-link ">Courses</a></li>
+            <li class="nav-item"><a href="about.html" class="nav-link ">About</a></li>
+            <li class="nav-item"><a href="team.php" class="nav-link ">Team</a></li>
+           
+        </ul>
+
+        <!-- Contact Information -->
+        <div class="text-center">
+          <h6 id="contact-info">Contact Information</h6>
+            <p class="">Azmi Khan</p>
+            <p class="">CEO and Director of Ascend Journey</p>
+            <p class="clickable"><a href="tel:8878676404">8878676404</a></p>
+            <p class="clickable"><a href="mailto:Mohammed8azmi@gmail.com">Mohammed8azmi@gmail.com</a></p>
+            
+        </div>
+
+        <!-- LinkedIn Icon -->
+        <div class="text-center mb-3">
+            <a href="https://www.linkedin.com/in/azmi-khan-2a1778197/"><img src="images/linkedin.png" alt="LinkedIn" class="social-icon"></a>
+        </div>
+
+        <!-- Google Map -->
+        <div class="map-container mb-3">
+            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3655.4872343082757!2d78.57644647398439!3d23.62271589366878!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x397ed6a7b663de4f%3A0xb2a2de82ac4ad928!2sGyanveer%20College!5e0!3m2!1sen!2sin!4v1727889725367!5m2!1sen!2sin" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+        </div>
+
+        <!-- Copyright Notice -->
+        <p class="text-center"> 
+          © 2024 Ascend Journey | All Rights Reserved | Site developed by 
+          <a href="https://github.com/Ankit-Gour" target="_blank" style="text-decoration: none;">Ankit Gour</a> 
+          <a href="https://github.com/Ankit-Gour" target="_blank">
+            <img src="https://github.githubassets.com/images/modules/logos_page/GitHub-Mark.png" alt="GitHub" width="20" height="20" style="vertical-align: middle; margin-left: 5px;border-radius: 5px;">
+          </a> 
+          <a href="https://www.linkedin.com/in/ankit-gour-0a00ab259" target="_blank">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/c/ca/LinkedIn_logo_initials.png" alt="LinkedIn" width="20" height="20" style="vertical-align: middle; margin-left: 5px;border-radius: 10px;">
+          </a>
+        </p>
+        
+    </div>
+</footer>
+
+<script src="js/jquery-3.4.1.min.js"></script>
+  <script src="js/bootstrap.js"></script>
+  <script src="js/custom.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
 </body>
 </html>
 

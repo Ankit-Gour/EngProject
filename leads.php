@@ -37,7 +37,7 @@ $result = $conn->query($sql);
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
     <style>
         body {
-            background-color: #f0f4f8;
+          background-color: #ffc5c5;
         }
         .container {
             margin-top: 30px;
@@ -54,7 +54,7 @@ $result = $conn->query($sql);
             justify-content: center;
         }
         .student-card {
-            background: #ffffff;
+            background: #ab919185;
             border: 1px solid #ddd;
             border-radius: 10px;
             padding: 15px;
@@ -70,9 +70,11 @@ $result = $conn->query($sql);
             box-shadow: 0 6px 15px rgba(0, 0, 0, 0.2);
         }
         .student-card h5 {
-            color: #007bff;
-            margin-bottom: 10px;
-        }
+	color: #000;
+	margin-bottom: 10px;
+	display: flex;
+	justify-content: center;
+}
         .student-card p {
             margin-bottom: 8px;
             font-size: 14px;
@@ -120,28 +122,31 @@ $result = $conn->query($sql);
 
 
 
-
-  <div class="hero_area">
+<div class="hero_area">
     <!-- header section strats -->
     <nav class="navbar navbar-expand-lg">
       <div class="container-fluid">
-        <a class="navbar-brand" href="#" >Ascend Journey</a>
+        <a class="navbar-brand" href="index.html" >
+          <div id="logo">
+            <img src="images/logo.jpg">
+          </div>
+        </a>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
           <span class="navbar-toggler-icon"></span>
         </button>
         <div class="collapse navbar-collapse" id="navbarNav">
           <ul class="navbar-nav">
             <li class="nav-item active">
-              <a class="nav-link" href="index.html">Home <span class="sr-only">(current)</span></a>
+              <a class="nav-link" href="index.html">Home <span class="sr-only"></span></a>
             </li>
             <li class="nav-item">
+              <li class="nav-item">
+                <a class="nav-link" href="login.php">Login  </a>
+              </li>
               <a class="nav-link" href="courses.html">Courses </a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="login.php">Login  </a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="about.html"> About</a>
+              <a class="nav-link" href="about.html"> About Us</a>
             </li>
             <li class="nav-item">
               <button type="button" class="nav-link " data-toggle="modal" data-target="#registrationModal">
@@ -152,122 +157,11 @@ $result = $conn->query($sql);
         </div>
       </div>
     </nav>
-    <!-- end header section -->
-    <!-- slider section -->
-    <section class="slider_section " id="navbar">
-      <div class="carousel_btn-container">
-        <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
-          <span class="sr-only">Previous</span>
-        </a>
-        <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
-          <span class="sr-only">Next</span>
-        </a>
-      </div>
-      <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
-        <ol class="carousel-indicators">
-          <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active">01</li>
-          <li data-target="#carouselExampleIndicators" data-slide-to="1">02</li>
-          <li data-target="#carouselExampleIndicators" data-slide-to="2">03</li>
-        </ol>
-        <div class="carousel-inner">
-          <div class="carousel-item active">
-            <div class="container-fluid">
-              <div class="row">
-                <div class="col-md-5 offset-md-1">
-                  <div class="detail-box">
-                    <h1>
-                      Master English <br>
-                      Unlock Your Full Potential <br>
-                      with Us
-                    </h1>
-                    <p>
-                      Elevate your language proficiency and soft skills with expert guidance from Ascend Journey.
-                    </p>
-                    <div class="btn-box">
-                      <button type="button" class="nav-link register-btn" data-toggle="modal" data-target="#registrationModal">
-                        Register Now
-                      </button>
-                    </div>
-                  </div>
-                </div>
-                <div class="offset-md-1 col-md-4 img-container">
-                  <div class="img-box">
-                    <img src="images/slider1.jpg" alt="">
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div class="carousel-item ">
-            <div class="container-fluid">
-              <div class="row">
-                <div class="col-md-5 offset-md-1">
-                  <div class="detail-box">
-                    <h1>
-                      Achieve Fluency<br>
-                      In English and German
-                    </h1>
-                    <p>
-                      Gain the confidence you need for personal and professional success with our flexible learning approach.
-                    </p>
-                    <div class="btn-box">
-                      <button type="button" class="nav-link register-btn" data-toggle="modal" data-target="#registrationModal">
-                        Register Now
-                      </button>
-                    </div>
-                  </div>
-                </div>
-                <div class="offset-md-1 col-md-4 img-container">
-                  <div class="img-box">
-                    <img src="images/slider2.jpg" alt="">
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div class="carousel-item ">
-            <div class="container-fluid">
-              <div class="row">
-                <div class="col-md-5 offset-md-1">
-                  <div class="detail-box">
-                    <h1>
-                      Join Ascend Journey<br>
-                      Unlock Global Opportunities
-                    </h1>
-                    <p>
-                      Our courses are designed to help you master languages and essential soft skills for a successful career.
-                    </p>
-                    <div class="btn-box">
-                      <button type="button" class="nav-link register-btn" data-toggle="modal" data-target="#registrationModal">
-                        Register Now
-                      </button>
-                    </div>
-                  </div>
-                </div>
-                <div class="offset-md-1 col-md-4 img-container">
-                  <div class="img-box">
-                    <img src="images/slider3.jpg" alt="">
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
 
-      </div>
-
-    </section>
-    <!-- end slider section -->
-  </div>
+</div>
 
 
 
-  <!-- registration modal -->
-   <!-- Button trigger modal -->
-
-
-<!-- Modal -->
-<!-- Modal Structure -->
 <div class="modal fade" id="registrationModal" tabindex="-1" role="dialog" aria-labelledby="registrationModalLabel" aria-hidden="true">
   <div class="modal-dialog" role="document">
     <div class="modal-content">
@@ -361,310 +255,34 @@ $result = $conn->query($sql);
 
 
 
-  <!-- experience section -->
-  <section class="experience_section layout_padding">
-    <div class="container">
-        <div class="row">
-            <div class="col-md-5">
-                <div class="img-box">
-                    <img src="images/experience-img.jpg" alt="">
-                </div>
-            </div>
-            <div class="col-md-7">
-                <div class="detail-box">
-                    <div class="heading_container">
-                        <h2>
-                            Learn with the Best: Azmi Khan
-                        </h2>
-                    </div>
-                    <p>
-                        Ascend Journey is led by Azmi Khan, a visionary CEO with a deep passion for language education. Master English with expert guidance through personalized courses tailored to your needs. Whether you're a beginner or looking to advance your skills, our experienced instructors will help you gain fluency, confidence, and mastery in speaking, writing, and understanding English, all at your pace. Join us to achieve measurable outcomes and reach your full potential!
-                    </p>
-                    <div class="btn-box">
-                        <button type="button" class="nav-link register-btn" data-toggle="modal" data-target="#registrationModal">
-                            Register Now
-                        </button>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-</section>
-
-
-  <!-- end experience section -->
-
-  <!-- category section -->
-
-  <section class="category_section layout_padding">
-    <div class="container">
-      <div class="heading_container">
-        <h2>
-          Our Pedagogy
-
-        </h2>
-      </div>
-      <div class="category_container">
-        <div class="box">
-          <div class="img-box">
-            <img src="images/c1.png" width="80" height="80">
-          </div>
-          <div class="detail-box">
-            <h5>
-              Assessment of Skill Level
-            </h5>
-          </div>
-        </div>
-        <div class="box">
-          <div class="img-box">
-            <img src="images/c2.png" width="80" height="80" alt="">
-          </div>
-          <div class="detail-box">
-            <h5>
-              Goal Setting
-            </h5>
-          </div>
-        </div>
-        <div class="box">
-          <div class="img-box">
-            <img src="images/c3.png" width="80" height="80" alt="">
-          </div>
-          <div class="detail-box">
-            <h5>
-              Building Vocabulary
-            </h5>
-          </div>
-        </div>
-        <div class="box">
-          <div class="img-box">
-            <img src="images/c4.png" width="80" height="80" alt="">
-          </div>
-          <div class="detail-box">
-            <h5>
-              Grammar Instruction
-            </h5>
-          </div>
-        </div>
-        <div class="box">
-          <div class="img-box">
-            <img src="images/c5.png" width="80" height="80" alt="">
-          </div>
-          <div class="detail-box">
-            <h5>
-              Listening & Speaking Practice
-            </h5>
-          </div>
-        </div>
-        <div class="box">
-          <div class="img-box">
-            <img src="images/c6.png" width="80" height="80"  alt="">
-          </div>
-          <div class="detail-box">
-            <h5>
-              Reading & Comprehension
-            </h5>
-          </div>
-        </div>
-        <div class="box">
-          <div class="img-box">
-            <img src="images/c7.png" width="80" height="80" alt="">
-          </div>
-          <div class="detail-box">
-            <h5>
-              Writing Practice
-            </h5>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-
-  <!-- end category section -->
-
-  
-  <!-- freelance section -->
-
-  <section class="freelance_section ">
-    <div id="accordion">
-      <div class="container-fluid">
-        <div class="row">
-          <div class="col-md-5 offset-md-1">
-            <div class="detail-box">
-              <div class="heading_container">
-                <h2>
-                  Continuous Professional Development
-                </h2>
-              </div>
-              <div class="tab_container">
-                <div class="t-link-box" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
-                  <div class="img-box">
-                    <img src="images/f1.png" alt="">
-                  </div>
-                  <div class="detail-box">
-                    <h5>
-                     100+ Students
-                    </h5>
-                    <h3>
-                      get trained
-                    </h3>
-                  </div>
-                </div>
-                <div class="t-link-box collapsed" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
-                  <div class="img-box">
-                    <img src="images/f2.png" alt="">
-                  </div>
-                  <div class="detail-box">
-                    <h5>
-                      200hr +                   </h5>
-                    <h3>
-                      Teaching experience
-                    </h3>
-                  </div>
-                </div>
-                <div class="t-link-box collapsed" data-toggle="collapse" data-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
-                  <div class="img-box">
-                    <img src="images/f3.png" alt="">
-                  </div>
-                  <div class="detail-box">
-                    <h5>
-                     200+ Students
-                    </h5>
-                    <h3>
-                    Positive Feedback 
-                    </h3>
-                  </div>
-                </div>
-                <div class="t-link-box collapsed" data-toggle="collapse" data-target="#collapseFour" aria-expanded="false" aria-controls="collapseFour">
-                  <div class="img-box">
-                    <img src="images/f4.png" alt="">
-                  </div>
-                  <div class="detail-box">
-                    <h5>
-                      100%
-                    </h5>
-                    <h3>
-                      Student <br>
-                      Satisfaction Rate
-                    </h3>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div class="col-md-6">
-            <div class="collapse show" id="collapseOne" aria-labelledby="headingOne" data-parent="#accordion">
-              <div class="img-box">
-                <img src="images/freelance-img.jpg" alt="">
-              </div>
-            </div>
-            <div class="collapse" id="collapseTwo" aria-labelledby="headingTwo" data-parent="#accordion">
-              <div class="img-box">
-                <img src="images/freelance-img.jpg" alt="">
-              </div>
-            </div>
-            <div class="collapse" id="collapseThree" aria-labelledby="headingThree" data-parent="#accordion">
-              <div class="img-box">
-                <img src="images/freelance-img.jpg" alt="">
-              </div>
-            </div>
-            <div class="collapse" id="collapseFour" aria-labelledby="headingfour" data-parent="#accordion">
-              <div class="img-box">
-                <img src="images/freelance-img.jpg" alt="">
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-  <!-- end freelance section -->
-
-  <!-- client section -->
-  <section class="client_section layout_padding">
-    <div class="container">
-      <div class="row">
-        <div class="col-lg-9 col-md-10 mx-auto">
-          <div class="heading_container">
-            <h2>
-              Testimonial
-            </h2>
-          </div>
-          <div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
-            <div class="carousel-inner">
-              <div class="carousel-item active">
-                <div class="detail-box">
-                  <h4>
-                    Priya Verma
-                  </h4>
-                  <p>
-                    Azmi Khan Sir's teaching approach is simply amazing. His detailed explanations and real-world examples helped me grasp complex concepts in no time. His classes are interactive, and he ensures that every student understands thoroughly. I'm now confident in my English skills, all thanks to Azmi Sir.
-                  </p>
-                  <img src="images/quote.png" alt="">
-                </div>
-              </div>
-              <div class="carousel-item">
-                <div class="detail-box">
-                  <h4>
-                    Rahul Singh
-                  </h4>
-                  <p>
-                    Learning under Azmi Khan Sir was an incredible experience. His ability to break down complicated grammar rules and make them easy to understand is remarkable. His patience and attention to detail have significantly improved my speaking and writing. I highly recommend Azmi Sir for mastering English.
-                  </p>
-                  <img src="images/quote.png" alt="">
-                </div>
-              </div>
-              <div class="carousel-item">
-                <div class="detail-box">
-                  <h4>
-                    Meera Patel
-                  </h4>
-                  <p>
-                    Azmi Khan Sir is an outstanding teacher who makes learning fun and insightful. His unique methods, combined with his encouragement, gave me the confidence to improve my English. His lessons are engaging and tailored to individual needs, which made a huge difference in my learning journey.
-                  </p>
-                  <img src="images/quote.png" alt="">
-                </div>
-              </div>
-            </div>
-            <a class="carousel-control-prev" href="#carouselExampleControls" role="button" data-slide="prev">
-              <span class="sr-only">Previous</span>
-            </a>
-            <a class="carousel-control-next" href="#carouselExampleControls" role="button" data-slide="next">
-              <span class="sr-only">Next</span>
-            </a>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-  
-  <!-- end client section -->
-
-  <footer class="footer_section py-3 my-4">
+<footer class="footer_section py-3 my-4">
     <div class="container">
         <!-- Logo -->
         <div class="text-center mb-3">
-            <a class="navbar-brand" href="index.html">
-                <span class="logo-text">Ascend Journey</span>
-            </a>
+          <a class="navbar-brand" href="index.html" >
+            <div id="logo">
+              <img src="images/logo.jpg">
+            </div>
+          </a>
         </div>
         
         <!-- Navigation Links -->
         <ul class="nav justify-content-center border-bottom pb-3 mb-3">
-            <li class="nav-item"><a href="index.html" class="nav-link px-2 text-body-secondary">Home</a></li>
-            <li class="nav-item"><a href="courses.html" class="nav-link px-2 text-body-secondary">Courses</a></li>
-            <li class="nav-item"><a href="about.html" class="nav-link px-2 text-body-secondary">About</a></li>
-            <li class="nav-item"><a href="team.php" class="nav-link px-2 text-body-secondary">Team</a></li>
+            <li class="nav-item"><a href="index.html" class="nav-link ">Home</a></li>
+            <li class="nav-item"><a href="courses.html" class="nav-link ">Courses</a></li>
+            <li class="nav-item"><a href="about.html" class="nav-link ">About</a></li>
+            <li class="nav-item"><a href="team.php" class="nav-link ">Team</a></li>
            
         </ul>
 
         <!-- Contact Information -->
         <div class="text-center">
-            <h6>Contact Information</h6>
-            <p class="text-body-secondary">Azmi Khan</p>
-            <p class="text-body-secondary">CEO and Director of Ascend Journey</p>
-            <p class="text-body-secondary">8878676404</p>
-            <p class="text-body-secondary">Mohammed8azmi@gmail.com</p>
+          <h6 id="contact-info">Contact Information</h6>
+            <p class="">Azmi Khan</p>
+            <p class="">CEO and Director of Ascend Journey</p>
+            <p class="clickable"><a href="tel:8878676404">8878676404</a></p>
+            <p class="clickable"><a href="mailto:Mohammed8azmi@gmail.com">Mohammed8azmi@gmail.com</a></p>
+            
         </div>
 
         <!-- LinkedIn Icon -->
@@ -678,10 +296,19 @@ $result = $conn->query($sql);
         </div>
 
         <!-- Copyright Notice -->
-        <p class="text-center text-body-secondary">© 2024 Ascend Journey | All Rights Reserved</p>
+        <p class="text-center"> 
+          © 2024 Ascend Journey | All Rights Reserved | Site developed by 
+          <a href="https://github.com/Ankit-Gour" target="_blank" style="text-decoration: none;">Ankit Gour</a> 
+          <a href="https://github.com/Ankit-Gour" target="_blank">
+            <img src="https://github.githubassets.com/images/modules/logos_page/GitHub-Mark.png" alt="GitHub" width="20" height="20" style="vertical-align: middle; margin-left: 5px;border-radius: 5px;">
+          </a> 
+          <a href="https://www.linkedin.com/in/ankit-gour-0a00ab259" target="_blank">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/c/ca/LinkedIn_logo_initials.png" alt="LinkedIn" width="20" height="20" style="vertical-align: middle; margin-left: 5px;border-radius: 10px;">
+          </a>
+        </p>
+        
     </div>
 </footer>
-
 
   
 
