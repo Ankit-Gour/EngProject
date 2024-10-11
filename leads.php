@@ -42,6 +42,19 @@ $result = $conn->query($sql);
         .container {
             margin-top: 30px;
         }
+
+        @media (min-width: 990px) {
+  .hero_area {
+	height: 80px;
+
+}
+  }
+
+  .hero_area {
+
+	margin-bottom: 60px;
+}
+    
         h2 {
             color: #333;
             margin-bottom: 20px;

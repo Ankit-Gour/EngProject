@@ -204,7 +204,7 @@ h1, .h1 {
 #logo img {
   opacity: 0; /* Start hidden */
   animation: fadeInScale 1s ease forwards; /* Fade-in and scale up */
-  animation-delay: 3.5s;
+  animation-delay: .5s;
 }
 
 /* Hover effect for scaling the logo */
@@ -380,7 +380,7 @@ h1, .h1 {
 /* Apply animation to .foranimation class */
 .foranimation {
   opacity: 0; /* Initially hidden */
-  animation: slideIn 0.5s ease forwards; /* Smooth slide-in animation */
+  animation: slideIn 1.5s ease forwards; /* Smooth slide-in animation */
   animation-delay: 1s; 
 }
 
@@ -660,21 +660,10 @@ h1, .h1 {
 .nav-link {
   opacity: 0; /* Start hidden */
   animation: fadeIn 1.5s ease forwards; /* 1.5 seconds fade-in */
-  animation-delay: 3s; /* Delay for visual effect */
+  animation-delay: 0.5s; /* Delay for visual effect */
 }
 
-/* Add delay for each link */
-.nav-link:nth-child(1) {
-  animation-delay: 3s;
-}
 
-.nav-link:nth-child(2) {
-  animation-delay: 3.5s;
-}
-
-.nav-link:nth-child(3) {
-  animation-delay: 4s;
-}
 @media (max-width: 992px) {
   .nav-link {
     opacity: 0; /* Start hidden */
