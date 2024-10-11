@@ -29,10 +29,10 @@ window.onload = function() {
         // Remove the loader from the DOM
         loader.style.display = "none";
         content.style.display = "flex"; // Show the content
-    }, 3000); // Change the time (in milliseconds) as needed
+    }, 300000); // Change the time (in milliseconds) as needed
 };
 
-const text1 = "Transform boundaries into bridges:";
+const text1 = "Transform boundaries into bridges";
 const text2 = "Revolutionize lives with the power of languages";
 const loadingTextElement1 = document.getElementById("loading-text-1");
 const loadingTextElement2 = document.getElementById("loading-text-2");
