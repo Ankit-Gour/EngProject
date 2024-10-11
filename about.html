@@ -81,7 +81,7 @@ list-style: none;
 .mission, .vision, .values {
     flex: 1; /* Takes equal space */
     padding: 20px;
-    background: #e8f5e9; /* Light green */
+    background: #38313163;
     border-radius: 10px;
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
     margin: 10px; /* Add margin between boxes */
@@ -206,6 +206,13 @@ h3 {
         opacity: 1;
     }
 }
+.img-3d {
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  transform: perspective(1000px) rotateY(10deg) rotateX(10deg);
+  box-shadow: 10px 10px 20px rgba(0, 0, 0, 0.3);
+}
+
+
 
 
   </style>
@@ -349,7 +356,8 @@ h3 {
 <section class="experience_section layout_padding">
   <div class="experience_content">
       <div class="img-box">
-          <img src="images/experience-img.jpg" alt="Image of Azmi Khan" class="img-fluid">
+        <img src="images/experience-img.jpg" alt="Image of Azmi Khan" class="img-fluid img-3d">
+
       </div>
       <div class="detail-box">
           <h2>Azmi Khan</h2>
@@ -407,13 +415,8 @@ h3 {
       <!-- Copyright Notice -->
       <p class="text-center"> 
         © 2024 Ascend Journey | All Rights Reserved | Site developed by 
-        <a href="https://github.com/Ankit-Gour" target="_blank" style="text-decoration: none;">Ankit Gour</a> 
-        <a href="https://github.com/Ankit-Gour" target="_blank">
-          <img src="https://github.githubassets.com/images/modules/logos_page/GitHub-Mark.png" alt="GitHub" width="20" height="20" style="vertical-align: middle; margin-left: 5px;border-radius: 5px;">
-        </a> 
-        <a href="https://www.linkedin.com/in/ankit-gour-0a00ab259" target="_blank">
-          <img src="https://upload.wikimedia.org/wikipedia/commons/c/ca/LinkedIn_logo_initials.png" alt="LinkedIn" width="20" height="20" style="vertical-align: middle; margin-left: 5px;border-radius: 10px;">
-        </a>
+        <a href="https://www.linkedin.com/in/ankit-gour-0a00ab259" target="_blank" style="text-decoration: none;">Ankit Gour</a> 
+      
       </p>
       
   </div>

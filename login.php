@@ -117,7 +117,7 @@ $conn->close();
             max-width: 500px;
             margin: 50px auto;
             padding: 20px;
-            background-color: white;
+            background-color: #d58181ab;
             border-radius: 10px;
             box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
             animation: fadeIn 1s ease-in;
@@ -406,13 +406,8 @@ $conn->close();
         <!-- Copyright Notice -->
         <p class="text-center"> 
           © 2024 Ascend Journey | All Rights Reserved | Site developed by 
-          <a href="https://github.com/Ankit-Gour" target="_blank" style="text-decoration: none;">Ankit Gour</a> 
-          <a href="https://github.com/Ankit-Gour" target="_blank">
-            <img src="https://github.githubassets.com/images/modules/logos_page/GitHub-Mark.png" alt="GitHub" width="20" height="20" style="vertical-align: middle; margin-left: 5px;border-radius: 5px;">
-          </a> 
-          <a href="https://www.linkedin.com/in/ankit-gour-0a00ab259" target="_blank">
-            <img src="https://upload.wikimedia.org/wikipedia/commons/c/ca/LinkedIn_logo_initials.png" alt="LinkedIn" width="20" height="20" style="vertical-align: middle; margin-left: 5px;border-radius: 10px;">
-          </a>
+          <a href="https://www.linkedin.com/in/ankit-gour-0a00ab259" target="_blank" style="text-decoration: none;">Ankit Gour</a> 
+        
         </p>
         
     </div>

@@ -33,47 +33,61 @@ body {
 #loader img:hover {
   transform: translateY(-5px) scale(1.05); /* Lift and scale effect */
 }
-#loader h2 {
-  margin-top: 20px;
-  font-size: 1.5rem; /* Adjust font size */
-  color: #000000; /* Text color */
-  white-space: nowrap; /* Prevent line breaks */
-  overflow: hidden; /* Hide the overflow */
-  border-right: 2px solid #333; /* Cursor effect */
-  animation: blink-caret 0.75s step-end infinite; /* Caret blinking */
-  line-height: 1.5; /* Space between lines */
+
+/* Main container for the text */
+#line1 {
+  display: flex;
+  flex-direction: column;  /* Stack the headings vertically */
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  max-width: 90vw;
+  margin: 20px auto;  /* Center the container */
+  padding: 2rem;  /* Adds padding for better spacing */
+  background-color: #d38d8d; /* Soft background color */
+  border-radius: 10px;  /* Rounded corners */
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);  /* Adds a soft shadow */
+}
+
+/* Style for both heading texts */
+#loading-text-1, #loading-text-2 {
+  font-size: 2rem;  /* Initial font size */
   font-weight: bold;
+  text-align: center;
+  color: #333;  /* Dark color for readability */
+  margin: 0.5rem 0;  /* Space between headings */
+  padding: 0.5rem 1rem;
+  word-wrap: break-word;
+  line-height: 1.4;  /* Improves readability */
+}
 
+/* Media query for tablet screens */
+@media (max-width: 768px) {
+  #loading-text-1, #loading-text-2 {
+    font-size: 1.8rem;  /* Slightly smaller font for tablets */
+    padding: 0.5rem;
+  }
+
+  #line1 {
+    padding: 1.5rem;  /* Adjust container padding for tablets */
+  }
+}
+
+/* Media query for mobile screens */
+@media (max-width: 480px) {
+  #loading-text-1, #loading-text-2 {
+    font-size: 1.4rem;  /* Smaller font for mobile screens */
+    padding: 0.5rem;
+  }
+
+  #line1 {
+    padding: 1rem;
+    box-shadow: none;  /* Simplified on small screens */
+  }
 }
 
 
 
-/* Caret Blinking Animation */
-@keyframes blink-caret {
-  from, to { border-color: transparent; }
-  50% { border-color: #333; }
-}
-
-/* Media Query for Screen Width Less Than 700px */
-@media (max-width: 700px) {
-  #loader h2 {
-      font-size: 1.2rem; /* Adjust font size for smaller screens */
-  }
-
-  #loader img {
-      width: 150px; /* Optionally reduce logo size for smaller screens */
-  }
-}
-
-@media (max-width: 500px) {
-  #loader h2 {
-      font-size: 0.8rem; /* Adjust font size for smaller screens */
-  }
-
-  #loader img {
-      width: 120px; /* Further reduce logo size for very small screens */
-  }
-}
 
 
 
