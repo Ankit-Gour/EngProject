@@ -29,7 +29,7 @@ window.onload = function() {
         // Remove the loader from the DOM
         loader.style.display = "none";
         content.style.display = "flex"; // Show the content
-    }, 300000); // Change the time (in milliseconds) as needed
+    }, 3000); // Change the time (in milliseconds) as needed
 };
 
 const text1 = "Transform boundaries into bridges";
