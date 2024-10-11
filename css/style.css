@@ -203,8 +203,8 @@ h1, .h1 {
 /* Initial fade-in animation on page load */
 #logo img {
   opacity: 0; /* Start hidden */
-  animation: fadeInScale 1s ease forwards; /* Fade-in and scale up */
-  animation-delay: .5s;
+  animation: fadeInScale 02s ease forwards; /* Fade-in and scale up */
+  animation-delay: .1s;
 }
 
 /* Hover effect for scaling the logo */
