@@ -97,7 +97,8 @@ $acknowledgements_result = $conn->query($acknowledgements_sql);
   <meta name="description" content="" />
   <meta name="author" content="" />
 
-  <title>Learn English</title>
+  <title>Generate Acknowledgement</title>
+  <link rel="icon" type="image/png" href="images/favicon-32x32.png" sizes="32x32">
 
   <!-- bootstrap core css -->
   <link rel="stylesheet" type="text/css" href="css/bootstrap.css" />
