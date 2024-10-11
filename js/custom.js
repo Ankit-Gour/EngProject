@@ -1,3 +1,12 @@
+
+$(document).ready(function() {
+    $('#carouselExampleIndicators').carousel({
+      interval: 5000 // 5 seconds
+    });
+  });
+
+
+
 // nav menu style
 var nav = $("#navbarSupportedContent");
 var btn = $(".custom_menu-btn");

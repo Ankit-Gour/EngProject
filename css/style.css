@@ -379,29 +379,44 @@ h1, .h1 {
   display: block;
 }
 
-/* Keyframes for slide-in animation */
-@keyframes slideIn {
-  from {
-    opacity: 0;
-    transform: translateY(50px); /* Slide in from below */
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0); /* End at its original position */
-  }
+
+
+.carousel-item {
+  opacity: 0;
+  transition: opacity 1s ease-in-out;
 }
 
-/* Apply animation to .foranimation class */
-.foranimation {
-  opacity: 0; /* Initially hidden */
-  animation: slideIn 1.5s ease forwards; /* Smooth slide-in animation */
-  animation-delay: 1s; 
+.carousel-item.active {
+  opacity: 1;
 }
 
+.carousel-item.next,
+.carousel-item.prev {
+  opacity: 0; /* Keep non-active items hidden */
+}
 
+.carousel-item.next.active,
+.carousel-item.prev.active {
+  opacity: 1; /* Fade in the next or previous item */
+}
 
+.img-container,
+.detail-box {
+  opacity: 0; /* Start with both containers hidden */
+  transition: opacity 1s ease-in-out;
+}
 
+.carousel-item.active .img-container,
+.carousel-item.active .detail-box {
+  opacity: 1; /* Fade in the image and text when active */
+}
 
+.carousel-item.next .img-container,
+.carousel-item.prev .img-container,
+.carousel-item.next .detail-box,
+.carousel-item.prev .detail-box {
+  opacity: 0; /* Hide during transition */
+}
 
 
 
