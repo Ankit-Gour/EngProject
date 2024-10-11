@@ -7,56 +7,72 @@ body {
 
 
 /* loader */
-
 #loader {
   position: relative;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: flex-start;
-  background: rgba(255, 255, 255, 0.9); /* Slightly less transparency */
+  background-color: #ffc5c5;
   border-radius: 15px; /* Rounded corners */
   padding: 30px;
   box-shadow: 0 6px 25px rgba(0, 0, 0, 0.2); /* Slightly stronger shadow */
-  animation: fadeIn 1s ease; /* Fade-in animation */
   height: 200vh;
 }
 
 #loader img {
   width: 200px; /* Adjust size of the logo */
   height: auto;
-  animation: bounce 1.5s ease infinite; /* Bounce animation */
   margin-top: 50px;
-  border-radius: 15px;
+  border-radius: 50%; /* Make image circular */
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3); /* 3D effect with shadow */
+  transition: transform 0.3s; /* Smooth transformation on hover */
+}
+
+/* 3D Effect on Hover */
+#loader img:hover {
+  transform: translateY(-5px) scale(1.05); /* Lift and scale effect */
 }
 
 h2 {
   margin-top: 20px;
   font-size: 1.5rem; /* Adjust font size */
   color: #333; /* Text color */
-  animation: fadeIn 1s ease; /* Fade-in animation for text */
-}
-
-/* Bounce Animation */
-@keyframes bounce {
-  0%, 20%, 50%, 80%, 100% {
-      transform: translateY(0); /* Initial position */
-  }
-  40% {
-      transform: translateY(-20px); /* Move up */
-  }
-  60% {
-      transform: translateY(-10px); /* Slightly lower bounce */
-  }
-}
-
-/* Fade In Animation */
-@keyframes fadeIn {
-  from { opacity: 0; }
-  to { opacity: 1; }
+  white-space: nowrap; /* Prevent line breaks */
+  overflow: hidden; /* Hide the overflow */
+  border-right: 2px solid #333; /* Cursor effect */
+  animation: blink-caret 0.75s step-end infinite; /* Caret blinking */
+  line-height: 1.5; /* Space between lines */
 }
 
 
+
+/* Caret Blinking Animation */
+@keyframes blink-caret {
+  from, to { border-color: transparent; }
+  50% { border-color: #333; }
+}
+
+/* Media Query for Screen Width Less Than 700px */
+@media (max-width: 700px) {
+  h2 {
+      font-size: 1.2rem; /* Adjust font size for smaller screens */
+  }
+
+  #loader img {
+      width: 150px; /* Optionally reduce logo size for smaller screens */
+  }
+}
+
+@media (max-width: 400px) {
+  h2 {
+      font-size: 0.9rem; /* Adjust font size for smaller screens */
+  }
+
+  #loader img {
+      width: 120px; /* Further reduce logo size for very small screens */
+  }
+}
 
 
 
