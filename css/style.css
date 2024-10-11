@@ -359,6 +359,7 @@ h1, .h1 {
   cursor: pointer;
 }
 
+
 .box:hover {
   transform: scale(1.1);
   box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
@@ -471,6 +472,7 @@ h1, .h1 {
   max-height: 45px;
 }
 
+
 .freelance_section .tab_container .t-link-box .detail-box h5 {
   font-weight: bold;
   color: #ff4f5a;
@@ -494,7 +496,6 @@ h1, .h1 {
 
 
 /* testimonals */
-
 .client_section .heading_container {
   -webkit-box-pack: center;
       -ms-flex-pack: center;
@@ -506,8 +507,16 @@ h1, .h1 {
   text-align: center;
   margin: 25px 35px;
   padding: 45px 65px 35px 65px;
-  -webkit-box-shadow: 0px 0px 20px 0 rgba(0, 0, 0, 0.2);
-          box-shadow: 0px 0px 20px 0 rgba(0, 0, 0, 0.2);
+  background-color: #b1b9b1c7;
+  -webkit-box-shadow: 0px 5px 30px rgba(0, 0, 0, 0.2); /* Increased shadow for depth */
+          box-shadow: 0px 5px 30px rgba(0, 0, 0, 0.2); /* Increased shadow for depth */
+  transition: transform 0.3s ease, box-shadow 0.3s ease; /* Smooth transition */
+}
+
+.client_section .detail-box:hover {
+  transform: translateY(-5px); /* Lift effect on hover */
+  -webkit-box-shadow: 0px 10px 40px rgba(0, 0, 0, 0.3); /* Stronger shadow on hover */
+          box-shadow: 0px 10px 40px rgba(0, 0, 0, 0.3); /* Stronger shadow on hover */
 }
 
 .client_section .detail-box h4 {
@@ -525,15 +534,24 @@ h1, .h1 {
   width: 65px;
   height: 65px;
   border: none;
-  border-radius: 100%;
+  border-radius: 50%; /* Circular shape */
   opacity: 1;
   background-repeat: no-repeat;
   background-size: 10px;
   background-position: center;
   background-color: #1a2e35;
   margin: 2px;
-  -webkit-transform: translateY(-50%);
-          transform: translateY(-50%);
+  
+  -webkit-box-shadow: 0px 5px 20px rgba(0, 0, 0, 0.2); /* Shadow for 3D effect */
+          box-shadow: 0px 5px 20px rgba(0, 0, 0, 0.2); /* Shadow for 3D effect */
+  transition: transform 0.3s ease, box-shadow 0.3s ease; /* Smooth transition */
+}
+
+.client_section .carousel-control-prev:hover,
+.client_section .carousel-control-next:hover {
+  transform: scale(1.1); /* Slightly enlarge on hover */
+  -webkit-box-shadow: 0px 10px 30px rgba(0, 0, 0, 0.3); /* Stronger shadow on hover */
+          box-shadow: 0px 10px 30px rgba(0, 0, 0, 0.3); /* Stronger shadow on hover */
 }
 
 .client_section .carousel-control-prev {
@@ -543,7 +561,6 @@ h1, .h1 {
 .client_section .carousel-control-next {
   background-image: url(../images/next-angle.png);
 }
-
 
 
 
