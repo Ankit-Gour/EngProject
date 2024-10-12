@@ -379,45 +379,15 @@ h1, .h1 {
   display: block;
 }
 
-
-
-.carousel-item {
+/* Custom fade animation for carousel */
+.custom-fade-carousel .carousel-item {
   opacity: 0;
-  transition: opacity 1s ease-in-out;
+  transition: opacity 1s ease-in-out; /* Fade transition time */
 }
 
-.carousel-item.active {
+.custom-fade-carousel .carousel-item.active {
   opacity: 1;
 }
-
-.carousel-item.next,
-.carousel-item.prev {
-  opacity: 0; /* Keep non-active items hidden */
-}
-
-.carousel-item.next.active,
-.carousel-item.prev.active {
-  opacity: 1; /* Fade in the next or previous item */
-}
-
-.img-container,
-.detail-box {
-  opacity: 0; /* Start with both containers hidden */
-  transition: opacity 1s ease-in-out;
-}
-
-.carousel-item.active .img-container,
-.carousel-item.active .detail-box {
-  opacity: 1; /* Fade in the image and text when active */
-}
-
-.carousel-item.next .img-container,
-.carousel-item.prev .img-container,
-.carousel-item.next .detail-box,
-.carousel-item.prev .detail-box {
-  opacity: 0; /* Hide during transition */
-}
-
 
 
 
@@ -502,18 +472,14 @@ h1, .h1 {
 
 
 /* .freelance_section */
-
-.freelance_section{
- 
-  background-color:#ffc5c5;
-  }
-
-
+.freelance_section {
+  background-color: #ffc5c5;
+}
 
 .freelance_section .row {
   -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
+  -ms-flex-align: center;
+  align-items: center;
 }
 
 .freelance_section .tab_container .t-link-box {
@@ -522,9 +488,14 @@ h1, .h1 {
   display: -ms-flexbox;
   display: flex;
   -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
+  -ms-flex-align: center;
+  align-items: center;
   cursor: pointer;
+  transition: transform 0.3s ease-in-out; /* Added transition for smooth effect */
+}
+
+.freelance_section .tab_container .t-link-box:hover {
+  transform: translateY(-10px); /* Slight lift effect on hover */
 }
 
 .freelance_section .tab_container .t-link-box .img-box {
@@ -536,42 +507,107 @@ h1, .h1 {
   display: -ms-flexbox;
   display: flex;
   -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
   -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
+  -ms-flex-align: center;
+  align-items: center;
   background-color: #1a2e35;
   border-radius: 100%;
   margin-right: 35px;
+  transition: transform 0.4s ease-in-out, background-color 0.3s ease; /* 3D hover effect */
+}
+
+.freelance_section .tab_container .t-link-box .img-box:hover {
+  transform: rotateY(180deg); /* 3D effect on hover */
 }
 
 .freelance_section .tab_container .t-link-box .img-box img {
   width: auto;
   height: auto;
-  max-width: 45px;
-  max-height: 45px;
+  max-width: 73px;
+  max-height: 70px;
+  background: #90787854;
+  border-radius: 29px;
+  padding: 11px;
+  margin: 4px;
+  transition: transform 0.5s ease-in-out; /* For smoother image transition */
 }
 
+.freelance_section .tab_container .t-link-box .img-box img:hover {
+  transform: scale(1.2); /* Image zoom on hover */
+}
 
 .freelance_section .tab_container .t-link-box .detail-box h5 {
   font-weight: bold;
   color: #ff4f5a;
+  animation: fadeInText 1.5s ease-in-out; /* Text animation */
+  transition: color 0.3s ease;
+}
+
+.freelance_section .tab_container .t-link-box .detail-box h5:hover {
+  color: #252525;
 }
 
 .freelance_section .tab_container .t-link-box .detail-box h3 {
   font-weight: bold;
   color: #252525;
+  animation: bounceIn 1s ease-out; /* Bouncy text animation */
+  transition: color 0.3s ease;
 }
 
-.freelance_section .tab_container .t-link-box[aria-expanded="true"] .img-box, .freelance_section .tab_container .t-link-box .img-box {
-	background-color:#ffc5c5;
+.freelance_section .tab_container .t-link-box .detail-box h3:hover {
+  color: #ff4f5a;
+}
+
+.freelance_section .tab_container .t-link-box[aria-expanded="true"] .img-box,
+.freelance_section .tab_container .t-link-box .img-box {
+  background-color: #ffc5c5;
 }
 
 .freelance_section .img-box img {
   width: 100%;
 }
+.hover-3d {
+  perspective: 1000px; /* Adds perspective to create a 3D effect */
+}
 
+.hover-3d img {
+  transition: transform 0.5s ease-in-out, box-shadow 0.5s ease-in-out;
+  transform-style: preserve-3d;
+}
+
+.hover-3d img:hover {
+  transform: scale(1.01); /* 3D rotation and scaling */
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3); /* Adds depth with a shadow */
+}
+
+
+/* Keyframes for text animations */
+@keyframes fadeInText {
+  0% {
+    opacity: 0;
+    transform: translateX(-20px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes bounceIn {
+  0% {
+    transform: scale(0.8);
+    opacity: 0;
+  }
+  50% {
+    transform: scale(1.1);
+    opacity: 1;
+  }
+  100% {
+    transform: scale(1);
+  }
+}
 
 
 
@@ -644,6 +680,58 @@ h1, .h1 {
 }
 
 
+/* Base styles for heading */
+.heading_container {
+  text-align: center;
+  margin-bottom: 40px;
+}
+
+.heading_container h2 {
+  font-size: 32px;
+  color: #333;
+  display: inline-block;
+  position: relative;
+  transition: color 0.3s ease;
+}
+
+
+.heading_hover_effect h2:hover {
+  color: #ff4f5a; /* Change text color on hover */
+}
+
+/* Underline grow effect on hover */
+.heading_hover_effect h2::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  bottom: -10px;
+  width: 100%;
+  height: 4px;
+  background-color: #ff4f5a;
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 0.3s ease;
+}
+
+.heading_hover_effect h2:hover::after {
+  transform: scaleX(1); /* Underline expands on hover */
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 /* Footer Section */
 .footer_section {
@@ -665,6 +753,8 @@ h1, .h1 {
   border: none;
   color: black;
 }
+
+
 .logo-text:hover {
   transform: scale(1.1); /* Scale effect on hover */
 }

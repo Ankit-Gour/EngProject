@@ -1,7 +1,7 @@
 
 $(document).ready(function() {
     $('#carouselExampleIndicators').carousel({
-      interval: 5000 // 5 seconds
+      interval: 5010 // 5 seconds
     });
   });
 
@@ -70,3 +70,5 @@ function typeText2() {
 }
 
 typeText1(); // Start typing effect for the first line
+
+

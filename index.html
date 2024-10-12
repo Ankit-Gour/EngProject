@@ -96,7 +96,8 @@
           <li data-target="#carouselExampleIndicators" data-slide-to="1">02</li>
           <li data-target="#carouselExampleIndicators" data-slide-to="2">03</li>
         </ol>
-        <div class="carousel-inner">
+        <!-- Apply the custom fade effect here -->
+        <div class="carousel-inner custom-fade-carousel">
           <div class="carousel-item active">
             <div class="container-fluid">
               <div class="row">
@@ -111,7 +112,7 @@
                       Transform boundaries into bridges: Revolutionize lives with the power of languages.
                     </p>
                     <div class="btn-box">
-                      <button type="button" class="nav-link forhover    register-btn" data-toggle="modal" data-target="#registrationModal">
+                      <button type="button" class="nav-link forhover register-btn" data-toggle="modal" data-target="#registrationModal">
                         Register Now
                       </button>
                     </div>
@@ -125,15 +126,12 @@
               </div>
             </div>
           </div>
-          <div class="carousel-item ">
+          <div class="carousel-item">
             <div class="container-fluid">
               <div class="row">
                 <div class="col-md-5 offset-md-1">
                   <div class="detail-box foranimation">
-                    <h1>
-                      Achieve Fluency<br>
-                      In English and German
-                    </h1>
+                    <h1>Achieve Fluency<br>In English and German</h1>
                     <p>
                       Gain the confidence you need for personal and professional success with our flexible learning approach.
                     </p>
@@ -152,15 +150,12 @@
               </div>
             </div>
           </div>
-          <div class="carousel-item ">
+          <div class="carousel-item">
             <div class="container-fluid">
               <div class="row">
                 <div class="col-md-5 offset-md-1">
                   <div class="detail-box foranimation">
-                    <h1>
-                      Join Ascend Journey<br>
-                      Unlock Global Opportunities
-                    </h1>
+                    <h1>Join Ascend Journey<br>Unlock Global Opportunities</h1>
                     <p>
                       Our courses are designed to help you master languages and essential soft skills for a successful career.
                     </p>
@@ -180,10 +175,9 @@
             </div>
           </div>
         </div>
-
       </div>
-
     </section>
+    
     <!-- end slider section -->
   </div>
 
@@ -261,7 +255,7 @@
   <!-- category section -->
   <section class="category_section layout_padding">
     <div class="container">
-      <div class="heading_container">
+      <div class="heading_container  heading_hover_effect">
         <h2>Our Pedagogy</h2>
       </div>
       <div class="category_container">
@@ -323,86 +317,93 @@
   
   <!-- freelance section -->
 
-  <section class="freelance_section ">
+  <section class="freelance_section">
     <div id="accordion">
       <div class="container-fluid">
         <div class="row">
           <div class="col-md-5 offset-md-1">
             <div class="detail-box">
-              <div class="heading_container">
-                <h2>
-                  Continuous Professional Development
-                </h2>
+              <div class="heading_container  heading_hover_effect">
+                <h2>Continuous Professional Development</h2>
               </div>
               <div class="tab_container">
+                <!-- Tab 1 -->
                 <div class="t-link-box" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
                   <div class="img-box">
-                    <img src="images/f1.png" alt="">
+                    <img src="images/f1.png" alt="100+ Students">
                   </div>
                   <div class="detail-box">
-                    <h5>
-                     100+ Students
-                    </h5>
-                    <h3>
-                      get trained
-                    </h3>
+                    <h5>100+ Students</h5>
+                    <h3>get trained</h3>
                   </div>
                 </div>
+                <!-- Tab 2 -->
                 <div class="t-link-box collapsed" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
                   <div class="img-box">
-                    <img src="images/f2.png" alt="">
+                    <img src="images/f2.png" alt="200hr Teaching Experience">
                   </div>
                   <div class="detail-box">
-                    <h5>
-                      200hr +                   </h5>
-                    <h3>
-                      Teaching experience
-                    </h3>
+                    <h5>200hr +</h5>
+                    <h3>Teaching experience</h3>
                   </div>
                 </div>
+                <!-- Tab 3 -->
                 <div class="t-link-box collapsed" data-toggle="collapse" data-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
                   <div class="img-box">
-                    <img src="images/f3.png" alt="">
+                    <img src="images/f3.png" alt="Positive Feedback">
                   </div>
                   <div class="detail-box">
-                    <h5>
-                     200+ Students
-                    </h5>
-                    <h3>
-                    Positive Feedback 
-                    </h3>
+                    <h5>200+ Students</h5>
+                    <h3>Positive Feedback</h3>
                   </div>
                 </div>
+                <!-- Tab 4 -->
                 <div class="t-link-box collapsed" data-toggle="collapse" data-target="#collapseFour" aria-expanded="false" aria-controls="collapseFour">
                   <div class="img-box">
-                    <img src="images/f4.png" alt="">
+                    <img src="images/f4.png" alt="Student Satisfaction">
                   </div>
                   <div class="detail-box">
-                    <h5>
-                      100%
-                    </h5>
-                    <h3>
-                      Student <br>
-                      Satisfaction Rate
-                    </h3>
+                    <h5>100%</h5>
+                    <h3>Student Satisfaction Rate</h3>
                   </div>
                 </div>
               </div>
             </div>
           </div>
+          <!-- Collapse Content Area -->
           <div class="col-md-6">
-            <div class="collapse show" id="collapseOne" aria-labelledby="headingOne" data-parent="#accordion">
-              <div class="img-box">
+            <!-- Content for Tab 1 -->
+            <div class="collapse show" id="collapseOne" data-parent="#accordion">
+              <div class="img-box hover-3d">
                 <img src="images/students.jpg" alt="Satisfied Students">
               </div>
+              
+              
             </div>
-          
-          
+            <!-- Content for Tab 2 -->
+            <div class="collapse" id="collapseTwo" data-parent="#accordion">
+              <div class="img-box">
+                <img src="images/teaching_experience.jpg" alt="Teaching Experience">
+              </div>
+            </div>
+            <!-- Content for Tab 3 -->
+            <div class="collapse" id="collapseThree" data-parent="#accordion">
+              <div class="img-box">
+                <img src="images/feedback.jpg" alt="Positive Feedback">
+              </div>
+            </div>
+            <!-- Content for Tab 4 -->
+            <div class="collapse" id="collapseFour" data-parent="#accordion">
+              <div class="img-box">
+                <img src="images/satisfaction.jpg" alt="Student Satisfaction">
+              </div>
+            </div>
           </div>
         </div>
       </div>
     </div>
   </section>
+  
   <!-- end freelance section -->
 
   <!-- client section -->
@@ -411,11 +412,12 @@
     <div class="container">
       <div class="row">
         <div class="col-lg-9 col-md-10 mx-auto">
-          <div class="heading_container">
+          <div class="heading_container heading_hover_effect">
             <h2>
-              Testimonial
+              Testimonials
             </h2>
           </div>
+          
           <div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
             <div class="carousel-inner">
               <div class="carousel-item active">
